@@ -4,7 +4,6 @@ using WUG.BehaviorTreeVisualizer;
 public class SelectorComposite : CompositeNode
 {
     public SelectorComposite(string displayName, params Node[] childNodes) : base(displayName, childNodes) { }
-
     protected override NodeStatus OnRun()
     {
         //We've reached the end of the ChildNodes and no one was successful
@@ -14,17 +13,11 @@ public class SelectorComposite : CompositeNode
         }
 
         //Call the current child
-        NodeStatus nodeStatus = (ChildNodes[CurrentChildIndex]as Node).Run();
+        NodeStatus nodeStatus = (ChildNodes[CurrentChildIndex] as Node).Run();
 
         //Check the child's status - failure means try a new child, Success means done.
-        switch (nodeStatus)
-        {
-            case NodeStatus.Failure:
-                CurrentChildIndex++;
-                break;
-            case NodeStatus.Success:
-                return NodeStatus.Success;
-        }
+        if(nodeStatus == NodeStatus.Failure) CurrentChildIndex++;
+        else if (nodeStatus == NodeStatus.Success) return NodeStatus.Success;   
 
         //If this point as been hit - then the current child is still running
         return NodeStatus.Running;

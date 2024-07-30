@@ -3,8 +3,7 @@ using WUG.BehaviorTreeVisualizer;
 
 public class SequenceComposite : CompositeNode
 {
-    public SequenceComposite(string displayName, params Node[] childNodes) : base(displayName, childNodes) { }
-
+        public SequenceComposite(string displayName, params Node[] childNodes) : base(displayName, childNodes) { }
     protected override NodeStatus OnRun()
     {
         //Check the status of the last child

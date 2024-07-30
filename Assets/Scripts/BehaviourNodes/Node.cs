@@ -4,7 +4,6 @@ using WUG.BehaviorTreeVisualizer;
 public abstract class Node : NodeBase
 {
     public int EvaluationCount;
-
     public virtual NodeStatus Run()
     {
         NodeStatus nodeStatus = OnRun();

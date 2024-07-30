@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,15 +8,20 @@ public class Interact : MonoBehaviour
     [SerializeField] Transform grabPoint;
     [SerializeField] Transform rayPoint;
     [SerializeField] float rayDistance;
+    LineRenderer lineRenderer;
     Movement movement;
     GameObject grabbedObject;
+    GameObject connectingObject;
     RaycastHit2D hitinfo;
     ProgressBar prog_bar;
+    bool isConnecting = false;
     void Start()
     {
+        lineRenderer = GetComponent<LineRenderer>();
         movement = GetComponent<Movement>();
-    }
 
+        lineRenderer.positionCount = 0;
+    }
     // Update is called once per frame
     void Update()
     {        
@@ -57,7 +63,6 @@ public class Interact : MonoBehaviour
         checkConnect();
         checkWork();
     }
-
     void checkPickUp()
     {
         if(hitinfo.collider != null)
@@ -66,7 +71,6 @@ public class Interact : MonoBehaviour
             hitinfo.collider.gameObject.CompareTag("Workshop")))
             {
                 grabbedObject = hitinfo.collider.gameObject;
-                grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 grabbedObject.transform.position = grabPoint.position;
                 grabbedObject.transform.parent = transform;
                 return;
@@ -80,18 +84,54 @@ public class Interact : MonoBehaviour
             grabbedObject = null;
         }
     }
-
     void checkConnect()
     {
-        if(hitinfo.collider != null && hitinfo.collider.gameObject.CompareTag("Workshop"))
+        if(!isConnecting)
         {
-            if(Input.GetKeyDown(KeyCode.C)) 
+            if(hitinfo.collider == null) return;
+            
+            if(Input.GetKeyDown(KeyCode.C) && (hitinfo.collider.gameObject.CompareTag("Workshop") || hitinfo.collider.gameObject.CompareTag("NPC")))
             {
-                grabbedObject = hitinfo.collider.gameObject;
-            }
-        }
-    }
+                connectingObject = hitinfo.collider.gameObject;
+                isConnecting = true;               
 
+                lineRenderer.positionCount = 2;
+                lineRenderer.SetPosition(0, hitinfo.collider.gameObject.transform.position);
+                lineRenderer.SetPosition(1, transform.position);
+            }
+
+            return;
+        }
+        
+        lineRenderer.material.mainTextureScale = new Vector2(Vector2.Distance(transform.position, connectingObject.transform.position) / lineRenderer.startWidth, 1.0f);
+        lineRenderer.SetPosition(1, transform.position);          
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            isConnecting = false;
+            lineRenderer.positionCount = 0;
+            if(hitinfo.collider.gameObject.CompareTag("Workshop") || hitinfo.collider.gameObject.CompareTag("NPC"))
+            {                    
+                if(connectingObject.CompareTag("NPC"))
+                {
+                    NPC npc = connectingObject.GetComponent<NPC>();
+                    npc.setWorkSpot(hitinfo.collider.gameObject.GetComponent<Workshop>().WorkSpot);
+                    
+                }
+                else
+                {   
+                    hitinfo.collider.gameObject.GetComponent<NPC>().setWorkSpot(connectingObject.GetComponent<Workshop>().WorkSpot);
+                }
+            } 
+            else if(connectingObject.CompareTag("NPC"))
+            {                
+                {
+                    connectingObject.GetComponent<NPC>().setWorkSpot(null);
+                }
+            }            
+            connectingObject = null;
+        }              
+    }
     void checkWork()
     {
         if(Input.GetKeyDown(KeyCode.Z) && hitinfo.collider != null && hitinfo.collider.gameObject.CompareTag("Workshop"))

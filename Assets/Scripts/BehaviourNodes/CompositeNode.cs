@@ -1,4 +1,7 @@
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using WUG.BehaviorTreeVisualizer;
 
 public abstract class CompositeNode : Node
 {
@@ -9,6 +12,6 @@ public abstract class CompositeNode : Node
     {
         Name = displayName;
 
-        
+        ChildNodes.AddRange(childNodes.ToList());        
     }
 }

@@ -1,16 +1,16 @@
 using UnityEngine;
 using WUG.BehaviorTreeVisualizer;
 
-public class IsGoingToCloseWindow : Condition
+public class IsGoingToSlackoff : Condition
 {
-    private float m_DistanceToCheck;
     NPC npc;
-    public IsGoingToCloseWindow(float maxDistance, NPC Npc) : base($"Are Windows within {maxDistance}f?")
+    public IsGoingToSlackoff(NPC Npc) : base($"Are They going to Slack Off?")
     {
-        m_DistanceToCheck = maxDistance;
         npc = Npc;
     }
+
     protected override void OnReset() { }
+
     protected override NodeStatus OnRun()
     {
         if (GameManager.manager == null || npc == null)
@@ -19,16 +19,14 @@ public class IsGoingToCloseWindow : Condition
             return NodeStatus.Failure;
         }
 
-        GameObject Window = npc.IsGoingToCloseWindow(m_DistanceToCheck);
+        bool value = npc.IsGoingToSlackOff();
 
-        if(Window == null)
+        if(!value)
         {
             StatusReason = "NPC Not Going To Close lol";
             return NodeStatus.Failure;
         }
 
         return NodeStatus.Success;
-
-
     }
 }

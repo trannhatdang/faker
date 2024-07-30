@@ -5,6 +5,7 @@ using UnityEngine;
 public class Workshop : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject WorkSpot;
     void Start()
     {
         

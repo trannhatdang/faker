@@ -2,14 +2,10 @@
     <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
     <Style src="project://database/Assets/UI/Overlay.uss?fileID=7433441132597879392&amp;guid=e2d6b209ee188cc4d9c08ad1b33ca8c6&amp;type=3#Overlay" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 6839px;" />
-    <ui:VisualElement name="BottomToolbar" style="flex-direction: row; height: 1526px;">
-        <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 1854px; align-items: flex-start; align-self: center; align-content: flex-start; height: 83px; flex-direction: row;">
-            <ui:VisualElement style="flex-grow: 0; height: 10px; width: 18px;" />
-            <ui:Button name="Shop" enabled="true" class="toolbar-button">
-                <ui:Label text="SHOP" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Play-Bold.ttf?fileID=12800000&amp;guid=0cea6c979d86e9a489a4ca9b89985f0c&amp;type=3#Play-Bold&quot;); height: 49px; font-size: 18px; align-items: center; -unity-text-align: middle-center;" />
-            </ui:Button>
-            <ui:VisualElement name="VisualElement" style="flex-grow: 1; height: 10px;" />
-        </ui:VisualElement>
+    <ui:VisualElement name="BottomToolbar" style="flex-direction: row; height: 602px;">
+        <ui:Button name="Shop" enabled="true" class="toolbar-button" style="margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px;">
+            <ui:Label text="SHOP" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Play-Bold.ttf?fileID=12800000&amp;guid=0cea6c979d86e9a489a4ca9b89985f0c&amp;type=3#Play-Bold&quot;); height: 49px; font-size: 18px; align-items: center; -unity-text-align: middle-center;" />
+        </ui:Button>
     </ui:VisualElement>
     <ui:VisualElement name="ShopMenu" style="background-color: rgb(128, 142, 155); background-image: none; border-top-left-radius: 35px; border-top-right-radius: 35px; border-bottom-right-radius: 35px; border-bottom-left-radius: 35px; border-left-color: rgb(30, 39, 46); border-right-color: rgb(30, 39, 46); border-top-color: rgb(30, 39, 46); border-bottom-color: rgb(30, 39, 46); border-top-width: 7px; border-right-width: 7px; border-bottom-width: 7px; border-left-width: 7px; height: 80%; position: absolute; width: 80%; left: 10%; top: 10%;">
         <ui:VisualElement name="MainShop" style="flex-grow: 1; flex-direction: row;">
