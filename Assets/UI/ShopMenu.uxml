@@ -1,0 +1,52 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
+    <engine:VisualElement style="flex-grow: 1;" />
+    <engine:VisualElement name="VisualElement" style="flex-grow: 1; padding-left: 147px; padding-right: 147px; height: 889px;">
+        <engine:VisualElement name="ShopMenu" style="width: auto; height: auto; background-color: rgb(11, 232, 129); background-image: none; padding-top: 0; padding-left: 73px; padding-bottom: 0; padding-right: 73px; flex-grow: 1; border-top-left-radius: 92px; border-top-right-radius: 92px; border-bottom-right-radius: 92px; border-bottom-left-radius: 92px; border-left-color: rgb(0, 216, 214); border-right-color: rgb(0, 216, 214); border-top-color: rgb(0, 216, 214); border-bottom-color: rgb(0, 216, 214); border-top-width: 18px; border-right-width: 18px; border-bottom-width: 18px; border-left-width: 18px;">
+            <engine:VisualElement name="VisualElement" style="flex-grow: 1; flex-direction: row;">
+                <engine:VisualElement style="flex-grow: 1;">
+                    <engine:Label text="Shop" style="align-self: center; font-size: 50px; -unity-font-style: bold;" />
+                </engine:VisualElement>
+                <engine:Button text="X" name="ExitButton" class="small-button" />
+            </engine:VisualElement>
+            <engine:VisualElement style="flex-grow: 1; height: 951px;">
+                <engine:VisualElement name="ShopItem" class="shop-item" style="flex-grow: 1; flex-direction: row; height: 0;">
+                    <engine:VisualElement name="Image" class="shopicon" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Image/deno.png?fileID=2800000&amp;guid=08361f6f53ab72b4d8b246f3ad49960f&amp;type=3#deno&quot;); margin-top: 20px; margin-bottom: 20px; margin-left: 20px; margin-right: 20px;" />
+                    <engine:VisualElement name="Descrip" tooltip="dafuq" usage-hints="-1" style="flex-grow: 1; width: 70%;">
+                        <engine:Label text="Một Den-O, khi mua về ông có thể Climax Jump." style="font-size: 53px; white-space: normal; align-self: flex-start;" />
+                    </engine:VisualElement>
+                    <engine:Button text="MUA" name="Buy" style="width: 169px; height: 134px; font-size: 42px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="ShopItem" class="shop-item" style="flex-grow: 1; flex-direction: row; height: 0;">
+                    <engine:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Image/deno.png?fileID=2800000&amp;guid=08361f6f53ab72b4d8b246f3ad49960f&amp;type=3#deno&quot;); margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;" />
+                    <engine:VisualElement name="Descrip" tooltip="dafuq" usage-hints="-1" style="flex-grow: 1; width: 70%;">
+                        <engine:Label text="Một Den-O, khi mua về ông có thể Climax Jump." style="font-size: 53px; white-space: normal; align-self: flex-start;" />
+                    </engine:VisualElement>
+                    <engine:Button text="MUA" name="Buy" style="width: 169px; height: 134px; font-size: 42px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="ShopItem" class="shop-item" style="flex-grow: 1; flex-direction: row; height: 0;">
+                    <engine:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Image/deno.png?fileID=2800000&amp;guid=08361f6f53ab72b4d8b246f3ad49960f&amp;type=3#deno&quot;); margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;" />
+                    <engine:VisualElement name="Descrip" tooltip="dafuq" usage-hints="-1" style="flex-grow: 1; width: 70%;">
+                        <engine:Label text="Một Den-O, khi mua về ông có thể Climax Jump." style="font-size: 53px; white-space: normal; align-self: flex-start;" />
+                    </engine:VisualElement>
+                    <engine:Button text="MUA" name="Buy" style="width: 169px; height: 134px; font-size: 42px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="ShopItem" class="shop-item" style="flex-grow: 1; flex-direction: row; height: 0;">
+                    <engine:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Image/deno.png?fileID=2800000&amp;guid=08361f6f53ab72b4d8b246f3ad49960f&amp;type=3#deno&quot;); margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;" />
+                    <engine:VisualElement name="Descrip" tooltip="dafuq" usage-hints="-1" style="flex-grow: 1; width: 70%;">
+                        <engine:Label text="Một Den-O, khi mua về ông có thể Climax Jump." style="font-size: 53px; white-space: normal; align-self: flex-start;" />
+                    </engine:VisualElement>
+                    <engine:Button text="MUA" name="Buy" style="width: 169px; height: 134px; font-size: 42px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="ShopItem" class="shop-item" style="flex-grow: 1; flex-direction: row; height: 0;">
+                    <engine:VisualElement name="Image" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Image/deno.png?fileID=2800000&amp;guid=08361f6f53ab72b4d8b246f3ad49960f&amp;type=3#deno&quot;); margin-top: 20px; margin-right: 20px; margin-bottom: 20px; margin-left: 20px;" />
+                    <engine:VisualElement name="Descrip" tooltip="dafuq" usage-hints="-1" style="flex-grow: 1; width: 70%;">
+                        <engine:Label text="Một Den-O, khi mua về ông có thể Climax Jump." style="font-size: 53px; white-space: normal; align-self: flex-start;" />
+                    </engine:VisualElement>
+                    <engine:Button text="MUA" name="Buy" style="width: 169px; height: 134px; font-size: 42px;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement style="flex-grow: 1;" />
+</engine:UXML>

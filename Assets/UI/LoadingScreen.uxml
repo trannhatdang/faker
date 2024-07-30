@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
+    <engine:ProgressBar value="22" title="dickhead" name="ProgressBar" tooltip="lol" data-source="project://database/Assets/Scripts/ScriptableObjects/LoadingMenu.asset?fileID=11400000&amp;guid=34cd44c0fb822e1429c07aecc8c03745&amp;type=2#LoadingMenu" style="bottom: auto; top: 90%; position: relative; scale: 1 1; font-size: 30px; -unity-text-align: upper-left; align-items: stretch; align-self: flex-end; right: 10%;">
+        <Bindings>
+            <engine:DataBinding property="value" data-source-path="prog" binding-mode="ToTarget" />
+        </Bindings>
+    </engine:ProgressBar>
+</engine:UXML>

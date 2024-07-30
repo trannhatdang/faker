@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: initial; top: auto; right: auto; flex-shrink: initial;">
+        <ui:VisualElement name="Buttons" style="width: 699px; height: 666px; left: 52%; top: 33%; align-items: center; right: auto;">
+            <ui:VisualElement name="Logo" style="height: 100%; background-image: url(&quot;project://database/Assets/Image/Guilty_Crown_logo.svg.png?fileID=2800000&amp;guid=569313dfdc71e074898b264cec60b5fe&amp;type=3#Guilty_Crown_logo.svg&quot;); scale: 1.6 1; width: 81%; -unity-background-scale-mode: stretch-to-fill;" />
+            <ui:Button text="PLAY" name="Play" class="Rectangular-Button" style="transition-property: all; transition-duration: 0.25s; transition-timing-function: ease; transition-delay: 0s;" />
+            <ui:Button text="CONTINUE" name="Continue" class="Rectangular-Button" />
+            <ui:Button text="OPTIONS" name="Options" class="Rectangular-Button" />
+            <ui:Button text="EXIT" name="Exit" class="Rectangular-Button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

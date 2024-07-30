@@ -1,0 +1,17 @@
+.unity-progress-bar__background {
+    background-color: rgb(128, 142, 155);
+}
+
+.unity-progress-bar__progress {
+    background-color: rgb(30, 39, 46);
+}
+
+.unity-label {
+    -unity-font-definition: url("project://database/Assets/Fonts/Play-Regular.ttf?fileID=12800000&guid=2033b418ec009324099405f0f60a32e2&type=3#Play-Regular");
+    margin: 0px;
+}
+
+.unity-progress-bar__container {
+    max-height: none;
+    flex-grow: 0;
+}
