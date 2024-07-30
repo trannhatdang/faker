@@ -4,9 +4,17 @@ using WUG.BehaviorTreeVisualizer;
 public abstract class Node : NodeBase
 {
     public int EvaluationCount;
+    private string m_LastStatusReason { get; set; } = "";
     public virtual NodeStatus Run()
     {
         NodeStatus nodeStatus = OnRun();
+
+        if (LastNodeStatus != nodeStatus || !m_LastStatusReason.Equals(StatusReason))
+        {
+            LastNodeStatus = nodeStatus;
+            m_LastStatusReason = StatusReason;
+            OnNodeStatusChanged(this);
+        }
 
         EvaluationCount++;
 

@@ -9,6 +9,7 @@ public class NPCData : ScriptableObject
     public string NPCDescription;
     public Sprite NPCSprite;
     public float workPower;
+    public float walkSpeed;
     public float WindowDistance;
     public float ChanceToClose;
     public float ChanceToSlack;

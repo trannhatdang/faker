@@ -1,10 +1,10 @@
 using UnityEngine;
 using WUG.BehaviorTreeVisualizer;
 
-public class HasWorkshop : Condition
+public class DoesntHaveWorkshop : Condition
 {
     NPC npc;
-    public HasWorkshop(NPC Npc) : base($"Do they have a Workshop?")
+    public DoesntHaveWorkshop(NPC Npc) : base($"Do they have a Workshop?")
     {
         npc = Npc;
     }
@@ -19,6 +19,6 @@ public class HasWorkshop : Condition
             return NodeStatus.Failure;
         }
 
-        return npc.WorkSpot ? NodeStatus.Success : NodeStatus.Failure;
+        return npc.getWorkSpot() ? NodeStatus.Failure : NodeStatus.Success;
     }
 }

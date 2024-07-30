@@ -17,51 +17,82 @@ public enum NavigationActivity
     Working,        
 }
 
-public class NPC : MonoBehaviour
+public class NPC : MonoBehaviour, IBehaviorTree
 {        
-    public NodeBase BehaviorTree {get; set;}   
-    public GameObject WorkSpot {get; private set;}    
     public GameObject WindowToClose {get; private set;}
-    [SerializeField] NPCData npcData;
-    [SerializeField] float speed = 1f;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Animator animator;
-    [SerializeField] GameObject rayPoint; 
     public NavigationActivity navigationActivity {get; private set;}
-    NavMeshAgent agent;
+    public NavMeshAgent agent {get; private set;}
+    public Rigidbody2D rb {get; private set;}
+    public Animator animator {get; private set;}
+    [SerializeField] GameObject WorkSpot;    
+    [SerializeField] NPCData npcData;
+    [SerializeField] MapData mapData;
+    [SerializeField] GameObject rayPoint; 
+
+    public NodeBase BehaviorTree { get; set; }
+    private Coroutine m_BehaviorTreeRoutine;
+
+    private void GenerateBehaviorTree()
+    {
+        BehaviorTree = 
+            new SelectorComposite("Control NPC",
+                new SequenceComposite("Do they have a workshop?",
+                    new DoesntHaveWorkshop(this),
+                    new SlackOff(this)),
+                new SequenceComposite("Are they going to slack off?",
+                    new IsGoingToSlackoff(this),
+                    new SlackOff(this)),
+                new SequenceComposite("Are they going to close a window?",
+                    new IsGoingToCloseWindow(npcData.WindowDistance, this),
+                    new CloseWindow(this)),
+                new SequenceComposite("Work Sequence",
+                    new GoingToWork(this),
+                    new Work(this)));
+    }
+
+    private IEnumerator RunBehaviorTree()
+    {
+        while (enabled)
+        {
+            if (BehaviorTree == null)
+            {
+                continue;
+            }
+
+            (BehaviorTree as Node).Run();
+
+            yield return 0.1f;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (m_BehaviorTreeRoutine != null)
+        {
+            StopCoroutine(m_BehaviorTreeRoutine);
+        }
+    }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
 		agent.updateRotation = false;
 		agent.updateUpAxis = false;
         agent.stoppingDistance = 1f;
+
+        GenerateBehaviorTree();
+    
+        if (m_BehaviorTreeRoutine == null && BehaviorTree != null)
+        {
+            m_BehaviorTreeRoutine = StartCoroutine(RunBehaviorTree());
+        }
     }
     void Update()
     {   
-        if(WorkSpot != null)
-        {
-            agent.destination = WorkSpot.transform.position;
-
-            rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y) * speed * Time.fixedDeltaTime);
-            Debug.DrawRay(transform.position, agent.desiredVelocity);
-
-            animator.SetFloat("Speed", agent.desiredVelocity.sqrMagnitude);        
-            animator.SetFloat("Vertical", agent.desiredVelocity.y);
-            animator.SetFloat("Horizontal", agent.desiredVelocity.x);   
-
-            if(agent.desiredVelocity.x >= 1f || agent.desiredVelocity.x <= -1f || agent.desiredVelocity.y >= 1f || agent.desiredVelocity.y <= -1f)
-            {
-                animator.SetFloat("LastVert", agent.desiredVelocity.y);
-                animator.SetFloat("LastHort", agent.desiredVelocity.x);   
-            }
-
-            if(agent.desiredVelocity == Vector3.zero) 
-            {
-                animator.SetFloat("LastVert", 1);    
-                animator.SetFloat("LastHort", 0); 
-            }
-        }       
-        IsGoingToCloseWindow(npcData.WindowDistance);
+            
     }
     public GameObject IsGoingToCloseWindow(float distance)
     {
@@ -74,11 +105,9 @@ public class NPC : MonoBehaviour
             rayPoint.transform.parent.localEulerAngles = new Vector3(0, 0, i);
 
             RaycastHit2D cast = Physics2D.Raycast(rayPoint.transform.position, dir, distance);
-            Debug.DrawRay(rayPoint.transform.position, dir);
 
             if(cast.collider != null && !scannedGameObjects.Contains(cast.collider.gameObject))
             {
-                // Debug.Log(cast.collider.gameObject.name);
                 scannedGameObjects.Add(cast.collider.gameObject);             
             }
         }
@@ -100,20 +129,23 @@ public class NPC : MonoBehaviour
         {
             value = true;
         }
-
         return value;
     }
     public void setWorkSpot(GameObject workSpot)
     {
         WorkSpot = workSpot;
-        Debug.Log("SET!");
-    }
-    public void setAnimatorIdleUp()
-    {
-        animator.SetFloat("LastVert", 1);
     }
     public NPCData getNPCData()
     {
         return npcData;
     }
+    public MapData getMapData()
+    {
+        return mapData;
+    }
+    public GameObject getWorkSpot()
+    {
+        return WorkSpot;
+    }
+
 }
