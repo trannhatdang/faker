@@ -18,6 +18,7 @@ public class FocusOnLastComposite : CompositeNode
         {
             //Child failed - continue
             case NodeStatus.Failure:
+            case NodeStatus.Success:
                 CurrentChildIndex++;
                 break;
             case NodeStatus.Running:
