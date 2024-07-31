@@ -12,17 +12,20 @@ public class GoingToWork : Node
     protected override NodeStatus OnRun()
     {
         UnityEngine.AI.NavMeshAgent agent = npc.agent;
-        UnityEngine.Animator animator = npc.animator;
-        UnityEngine.Rigidbody2D rb = npc.rb;
+        Animator animator = npc.animator;
+        Rigidbody2D rb = npc.rb;
+        GameObject lastWorkSpot = null;
         if (GameManager.manager == null || npc == null)
         {
             StatusReason = "GameManager and/or NPC is null";
             return NodeStatus.Failure;
         }
+        
+        if(lastWorkSpot == null) lastWorkSpot = npc.getWorkSpot();
 
-        if(EvaluationCount == 0) agent.destination = npc.getWorkSpot().transform.position;
+        if(EvaluationCount == 0 || lastWorkSpot != npc.getWorkSpot()) agent.destination = npc.getWorkSpot().transform.position;
 
-        rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y) * npc.getNPCData().walkSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y).normalized * npc.getNPCData().walkSpeed * Time.fixedDeltaTime);
 
         animator.SetFloat("Speed", agent.desiredVelocity.sqrMagnitude);        
         animator.SetFloat("Vertical", agent.desiredVelocity.y);

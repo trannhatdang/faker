@@ -62,6 +62,7 @@ public class Interact : MonoBehaviour
         checkPickUp(); 
         checkConnect();
         checkWork();
+        checkSmack();
     }
     void checkPickUp()
     {
@@ -116,7 +117,6 @@ public class Interact : MonoBehaviour
                 {
                     NPC npc = connectingObject.GetComponent<NPC>();
                     npc.setWorkSpot(hitinfo.collider.gameObject.GetComponent<Workshop>().WorkSpot);
-                    
                 }
                 else
                 {   
@@ -139,6 +139,14 @@ public class Interact : MonoBehaviour
             prog_bar = hitinfo.collider.gameObject.GetComponent<UIDocument>().rootVisualElement.Q<ProgressBar>("ProgressBar");
             if(prog_bar.value < 100) prog_bar.value += 20;
             else prog_bar.value = 0;    
+        }
+    }
+    void checkSmack()
+    {
+        if(Input.GetKeyDown(KeyCode.R) && hitinfo.collider.gameObject.CompareTag("NPC"))
+        {
+            NPC npc = hitinfo.collider.gameObject.GetComponent<NPC>();
+            npc.setSmack(true);
         }
     }
 }

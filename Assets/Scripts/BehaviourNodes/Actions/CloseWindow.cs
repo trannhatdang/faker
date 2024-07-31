@@ -17,8 +17,6 @@ public class CloseWindow : Node
             return NodeStatus.Failure;
         }
         
-        
-
         return NodeStatus.Running;
     }
     protected override void OnReset()

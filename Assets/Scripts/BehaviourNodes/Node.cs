@@ -29,9 +29,9 @@ public abstract class Node : NodeBase
     public void Reset()
     {
         EvaluationCount = 0;
+        // Debug.Log(Name + " reset'd");
         OnReset();
     }
-
     protected abstract NodeStatus OnRun();
     protected abstract void OnReset();
 }

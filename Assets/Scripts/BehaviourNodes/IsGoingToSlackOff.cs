@@ -21,9 +21,11 @@ public class IsGoingToSlackoff : Condition
 
         bool value = npc.IsGoingToSlackOff();
 
-        if(!value)
+        Debug.Log(npc.isSmacked);
+
+        if(!value || npc.isSmacked)
         {
-            StatusReason = "NPC Not Going To Close lol";
+            StatusReason = "NPC Not Going To Slack off";
             return NodeStatus.Failure;
         }
 

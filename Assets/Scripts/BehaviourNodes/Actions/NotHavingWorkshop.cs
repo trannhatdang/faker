@@ -1,11 +1,11 @@
 using UnityEngine;
 using WUG.BehaviorTreeVisualizer;
 
-public class SlackOff : Node
+public class NotHavingWorkshop : Node
 {
     NPC npc;
     Vector3 newPos = Vector3.zero;
-    public SlackOff(NPC Npc)
+    public NotHavingWorkshop(NPC Npc)
     {
         npc = Npc;
     }
@@ -14,23 +14,24 @@ public class SlackOff : Node
         UnityEngine.AI.NavMeshAgent agent = npc.agent;
         Animator animator = npc.animator;
         Rigidbody2D rb = npc.rb;
-
         if (GameManager.manager == null || npc == null)
         {
             StatusReason = "GameManager and/or NPC is null";
             return NodeStatus.Failure;
         }
 
-        if(EvaluationCount == 0 || UnityEngine.Vector3.Distance(npc.transform.position, newPos) < 1f)
+        if(EvaluationCount == 0 || Vector2.Distance(rb.position, newPos) < 1f)
         {
             float xPos = Random.Range(npc.getMapData().leftBorder, npc.getMapData().rightBorder);
             float yPos = Random.Range(npc.getMapData().downBorder, npc.getMapData().upBorder);
-            newPos = new UnityEngine.Vector3(xPos, yPos, 0);
+            newPos = new Vector2(xPos, yPos);
         }
 
-        rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y).normalized * npc.getNPCData().walkSpeed / 100 * Time.fixedDeltaTime);
+        agent.destination = newPos;
 
-        animator.SetFloat("Speed", agent.desiredVelocity.sqrMagnitude);        
+        rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y).normalized * npc.getNPCData().walkSpeed / 10f);
+
+        animator.SetFloat("Speed", agent.desiredVelocity.normalized.magnitude);        
         animator.SetFloat("Vertical", agent.desiredVelocity.y);
         animator.SetFloat("Horizontal", agent.desiredVelocity.x);   
 
@@ -46,7 +47,7 @@ public class SlackOff : Node
             animator.SetFloat("LastHort", rb.linearVelocityX);   
         }
 
-        if(npc.isSmacked) return NodeStatus.Failure;
+        if(npc.getWorkSpot() != null) return NodeStatus.Failure;
 
         return NodeStatus.Running;
     }

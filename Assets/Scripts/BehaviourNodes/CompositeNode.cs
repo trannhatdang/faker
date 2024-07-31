@@ -14,4 +14,6 @@ public abstract class CompositeNode : Node
 
         ChildNodes.AddRange(childNodes.ToList());        
     }
+
+    public int getChildIndex() {return CurrentChildIndex;}
 }
