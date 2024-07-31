@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35324da0b3f68d847a8473e4f2a02571, type: 3}
   m_Name: BaGia
   m_EditorClassIdentifier: 
-  NPCName: 
-  NPCDescription: 
+  NPCName: "B\xE0 gi\xE0"
+  NPCDescription: Sad
   NPCSprite: {fileID: 0}
   workPower: 0
   walkSpeed: 0

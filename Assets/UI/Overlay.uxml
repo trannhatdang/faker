@@ -3,9 +3,31 @@
     <Style src="project://database/Assets/UI/Overlay.uss?fileID=7433441132597879392&amp;guid=e2d6b209ee188cc4d9c08ad1b33ca8c6&amp;type=3#Overlay" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 6839px;" />
     <ui:VisualElement name="BottomToolbar" style="flex-direction: row; height: 602px;">
-        <ui:Button name="Shop" enabled="true" class="toolbar-button" style="margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px;">
-            <ui:Label text="SHOP" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Play-Bold.ttf?fileID=12800000&amp;guid=0cea6c979d86e9a489a4ca9b89985f0c&amp;type=3#Play-Bold&quot;); height: 49px; font-size: 18px; align-items: center; -unity-text-align: middle-center;" />
+        <ui:Button name="Shop" enabled="true" class="toolbar-button" style="margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px; height: 50px;">
+            <ui:Label text="SHOP" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Play-Bold.ttf?fileID=12800000&amp;guid=0cea6c979d86e9a489a4ca9b89985f0c&amp;type=3#Play-Bold&quot;); height: 49px; font-size: 14px; align-items: center; -unity-text-align: middle-center;" />
         </ui:Button>
+        <ui:VisualElement style="flex-grow: 0; width: 357px;" />
+        <ui:VisualElement name="ControlsOverlay" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="FirstButton" class="overlayControl" style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement style="background-color: rgb(128, 142, 155); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; margin-bottom: 4px; margin-top: 4px; margin-right: 2px; margin-left: 2px; -unity-text-align: upper-center; align-self: center; flex-grow: 0; width: 62px; height: 55px; justify-content: center;">
+                    <ui:Label text="Label" name="ButtonName" />
+                </ui:VisualElement>
+                <ui:Label text="Move" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SecondButton" class="overlayControl" style="flex-grow: 1; flex-direction: row;">
+                <ui:VisualElement style="background-color: rgb(128, 142, 155); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; margin-bottom: 4px; margin-top: 4px; margin-right: 2px; margin-left: 2px; -unity-text-align: upper-center; align-self: center; flex-grow: 0; width: 62px; height: 55px; justify-content: center;">
+                    <ui:Label text="Label" name="ButtonName" />
+                </ui:VisualElement>
+                <ui:Label text="Move" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ThirdButton" class="overlayControl">
+                <ui:VisualElement style="background-color: rgb(128, 142, 155); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; margin-bottom: 4px; margin-top: 4px; margin-right: 2px; margin-left: 2px; -unity-text-align: upper-center; align-self: center; flex-grow: 0; width: 62px; height: 55px; justify-content: center;">
+                    <ui:Label text="Label" name="ButtonName" />
+                </ui:VisualElement>
+                <ui:Label text="Move" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 0; width: 357px;" />
     </ui:VisualElement>
     <ui:VisualElement name="ShopMenu" style="background-color: rgb(128, 142, 155); background-image: none; border-top-left-radius: 35px; border-top-right-radius: 35px; border-bottom-right-radius: 35px; border-bottom-left-radius: 35px; border-left-color: rgb(30, 39, 46); border-right-color: rgb(30, 39, 46); border-top-color: rgb(30, 39, 46); border-bottom-color: rgb(30, 39, 46); border-top-width: 7px; border-right-width: 7px; border-bottom-width: 7px; border-left-width: 7px; height: 80%; position: absolute; width: 80%; left: 10%; top: 10%;">
         <ui:VisualElement name="MainShop" style="flex-grow: 1; flex-direction: row;">

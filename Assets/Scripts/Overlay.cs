@@ -9,7 +9,8 @@ public class Overlay : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     VisualElement overlay;
-    VisualElement ShopPopup;    
+    VisualElement ShopPopup; 
+    List<VisualElement> ControlOverlays = new List<VisualElement>(); 
     Button ShopButton;
     Button CloseShop;
     List<Button> HireButtons;
@@ -23,7 +24,7 @@ public class Overlay : MonoBehaviour
         HireButtons = overlay.Query<Button>(className: "hire-button").ToList();
 
         ShopButton.clicked += OnShopClick;
-        CloseShop.clicked += OnShopExitClick;      
+        CloseShop.clicked += OnShopExitClick;             
 
         foreach(Button button in HireButtons)
         {
@@ -34,6 +35,15 @@ public class Overlay : MonoBehaviour
         }        
 
         ShopPopup.style.display = DisplayStyle.None;
+
+        ControlOverlays.Add(overlay.Q<VisualElement>("FirstButton")); 
+        ControlOverlays.Add(overlay.Q<VisualElement>("SecondButton")); 
+        ControlOverlays.Add(overlay.Q<VisualElement>("ThirdButton")); 
+
+        for(int i = 0; i < ControlOverlays.Count; i++)
+        {
+            ControlOverlays[i].style.display = DisplayStyle.None;
+        }
     }
 
     // Update is called once per frame
@@ -60,4 +70,5 @@ public class Overlay : MonoBehaviour
             StartCoroutine(couroutine);
         }
     }
+
 }
