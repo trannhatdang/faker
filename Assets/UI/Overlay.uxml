@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
     <Style src="project://database/Assets/UI/Overlay.uss?fileID=7433441132597879392&amp;guid=e2d6b209ee188cc4d9c08ad1b33ca8c6&amp;type=3#Overlay" />
+    <Style src="project://database/Assets/UI/Inventory.uss?fileID=7433441132597879392&amp;guid=3f37c6d88b24c384a9ab6ccaa9e355a7&amp;type=3#Inventory" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 6839px;" />
     <ui:VisualElement name="BottomToolbar" style="flex-direction: row; height: 602px;">
         <ui:Button name="Shop" enabled="true" class="toolbar-button" style="margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px; height: 50px;">
@@ -55,4 +56,11 @@
         </ui:VisualElement>
         <ui:Button text="X" name="ExitShop" class="small-button" style="width: 37px; position: absolute; top: 6px; left: 1450px; height: 33px;" />
     </ui:VisualElement>
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center; position: absolute; width: 75%; height: 100%; align-self: center; align-content: center;">
+        <ui:VisualElement name="Inventory" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgb(128, 142, 155); border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 30px; margin-top: 150px; margin-right: 88px; margin-bottom: 150px; margin-left: 88px; width: 100%; height: 100%; visibility: visible;">
+            <ui:Label text="Inventory" name="Header" style="font-size: 24px; color: rgb(60, 64, 198); -unity-font-style: bold; padding-bottom: 0; padding-top: 0; padding-right: 0; padding-left: 0; margin-bottom: 10px; margin-left: 12px;" />
+            <ui:VisualElement name="SlotContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: center; align-content: center; align-self: center; justify-content: center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="GhostIcon" class="slotContainer" style="flex-grow: 1; position: absolute; visibility: visible; width: 128px; height: 128px;" />
 </ui:UXML>

@@ -66,8 +66,7 @@ public class Overlay : MonoBehaviour
     {
         if(name == "RauHire")
         {
-            IEnumerator couroutine = GameManager.manager.Hire("ChuBanRau");
-            StartCoroutine(couroutine);
+            GameManager.manager.Hire("ChuBanRau");
         }
     }
 

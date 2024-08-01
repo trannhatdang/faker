@@ -1,22 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager {get; private set;}
+    public event EventHandler OnChangeInventory;
     public float LoadingValue {get; private set;}
+    public static InventoryUIController inventoryUIController {get; private set;}
     List<GameObject> AllNPCs;
-    GameObject door;
-    [SerializeField] UI ui;        
+    GameObject door;   
     void Awake()
     {
         if(manager != null && manager != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
@@ -25,8 +29,8 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-        ui = GameObject.FindWithTag("UI").GetComponent<UI>();
         AllNPCs = Resources.LoadAll<GameObject>("NPCs").ToList();
+        if(GameObject.FindWithTag("UI").GetComponent<InventoryUIController>() != null) inventoryUIController = GameObject.FindWithTag("UI").GetComponent<InventoryUIController>();
     }
     void Start()
     {
@@ -39,18 +43,25 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public IEnumerator Hire(string name)
-    {
-        var toHire = AllNPCs.Find(x => x.name == name);
-        float timer = 5f;
+    // public IEnumerator Hire(string name)
+    // {
+    //     var toHire = AllNPCs.Find(x => x.name == name);
+    //     float timer = 5f;
 
-        for(; timer >= 0; timer -= Time.deltaTime) 
-        {            
-            yield return null;
-        }        
+    //     for(; timer >= 0; timer -= Time.deltaTime) 
+    //     {            
+    //         yield return null;
+    //     }        
         
+    //     Instantiate(toHire, door.transform.position, Quaternion.identity);
+        
+    // }
+
+    public void Hire(string name)
+    {
+        GameObject toHire = AllNPCs.Find(x => x.name == name);
+
         Instantiate(toHire, door.transform.position, Quaternion.identity);
-        
     }
 
     public void LoadScene(int ID)
@@ -61,6 +72,7 @@ public class GameManager : MonoBehaviour
     IEnumerator LoadSceneAsync(int ID)
     {
         AsyncOperation LoadScene = SceneManager.LoadSceneAsync(ID);
+        UI ui = GameObject.FindGameObjectWithTag("UI").GetComponent<UI>();
 
         ui.setUIActive("LoadingScreen",true);
 
@@ -70,5 +82,9 @@ public class GameManager : MonoBehaviour
 
             yield return null;
         }
+    }
+    public void ChangeInventory()
+    {        
+        OnChangeInventory?.Invoke(this, EventArgs.Empty);
     }
 }

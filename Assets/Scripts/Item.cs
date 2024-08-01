@@ -1,16 +1,19 @@
+using System;
 using Microsoft.Unity.VisualStudio.Editor;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu]
 public class Item : MonoBehaviour
 {
-    public Sprite image {get; private set;}
-    [SerializeField] string ItemName;
     [SerializeField] ItemData itemdata;
     void Awake()
     {
-        image = itemdata.Icon;
+        
     }
+
+    public Sprite getIcon() {return itemdata.Icon;}
+    public string getItemName() {return itemdata.ItemName;}
+    public ItemData GetItemData() {return itemdata;}
+
 }

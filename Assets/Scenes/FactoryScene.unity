@@ -400,11 +400,11 @@ GameObject:
   - component: {fileID: 541755185}
   m_Layer: 0
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &541755184
 Transform:
   m_ObjectHideFlags: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c29429b2eccf34080fc04c4c5b4298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryData: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: acf190541c8c43c4e9cfcee80333bde5, type: 2}
 --- !u!114 &541755186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,7 +972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a97dea2cb38d4eaa466a62f4c82f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
 --- !u!4 &906727663
 Transform:
   m_ObjectHideFlags: 0
