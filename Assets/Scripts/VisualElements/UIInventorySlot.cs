@@ -47,15 +47,30 @@ public class UIInventorySlot : VisualElement
     }
     void OnPointerDown(PointerDownEvent evt)
     {
-        if (evt.button != 0 || itemData == null)
+        InventoryUIController inventoryUIController = GameManager.inventoryUIController;
+
+        if(inventoryUIController.getContextStatus())
+        {
+            inventoryUIController.CloseContextMenu();
+        } 
+
+        if (itemData == null)
         {
             return;
         }
 
-        IconContainer.style.backgroundImage = null;
+        if(evt.button == 0)
+        {     
+            IconContainer.style.backgroundImage = null;
 
-        //Start the drag
-        GameManager.inventoryUIController.StartDrag(evt.position, this);
+            //Start the drag
+            GameManager.inventoryUIController.StartDrag(evt.position, this);
+        }
+        else if(evt.button == 1)
+        {           
+            Debug.Log(itemData.ItemName);
+            inventoryUIController.OpenContextMenu(evt.position, this);
+        }
     }
     public void RestoreImage()
     {

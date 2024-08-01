@@ -56,11 +56,16 @@
         </ui:VisualElement>
         <ui:Button text="X" name="ExitShop" class="small-button" style="width: 37px; position: absolute; top: 6px; left: 1450px; height: 33px;" />
     </ui:VisualElement>
-    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center; position: absolute; width: 75%; height: 100%; align-self: center; align-content: center;">
-        <ui:VisualElement name="Inventory" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgb(128, 142, 155); border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 30px; margin-top: 150px; margin-right: 88px; margin-bottom: 150px; margin-left: 88px; width: 100%; height: 100%; visibility: visible;">
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center; position: absolute; width: 100%; height: 100%; align-self: center; align-content: center;">
+        <ui:VisualElement name="Inventory" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgb(128, 142, 155); border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 30px; margin-top: 150px; margin-right: 88px; margin-bottom: 150px; margin-left: 88px; width: 81%; height: 100%; visibility: visible;">
             <ui:Label text="Inventory" name="Header" style="font-size: 24px; color: rgb(60, 64, 198); -unity-font-style: bold; padding-bottom: 0; padding-top: 0; padding-right: 0; padding-left: 0; margin-bottom: 10px; margin-left: 12px;" />
             <ui:VisualElement name="SlotContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: center; align-content: center; align-self: center; justify-content: center;" />
         </ui:VisualElement>
+        <ui:Button text="X" name="ExitInventory" class="small-button" style="width: 37px; position: absolute; top: 114px; left: 1707px; height: 33px;" />
+        <ui:VisualElement name="GhostIcon" class="slotContainer" style="position: absolute;" />
     </ui:VisualElement>
-    <ui:VisualElement name="GhostIcon" class="slotContainer" style="flex-grow: 1; position: absolute; visibility: visible; width: 128px; height: 128px;" />
+    <ui:VisualElement name="ContextMenu" style="flex-grow: 1; position: absolute; visibility: visible; width: 128px; height: 98px; top: 435px; left: 622px;">
+        <ui:Button text="Place In World" name="PlaceInWorld" />
+        <ui:Button text="Sell" name="Sell" />
+    </ui:VisualElement>
 </ui:UXML>

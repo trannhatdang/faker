@@ -38,7 +38,7 @@ public class Interact : MonoBehaviour
         if(movement.LastVert == 1f)
         {
             rayPoint.transform.localPosition = new Vector2(0, 0.3f);
-            grabPoint.transform.localPosition = new Vector2(0, 0.5f);
+            grabPoint.transform.localPosition = new Vector2(0, 0.7f);
             hitinfo = Physics2D.Raycast(rayPoint.position, transform.up, rayDistance);
             Debug.DrawRay(rayPoint.position, transform.up * rayDistance);
         }
@@ -54,29 +54,29 @@ public class Interact : MonoBehaviour
         if(movement.LastVert == -1f)
         {
             rayPoint.transform.localPosition = new Vector2(0, -0.5f);
-            grabPoint.transform.localPosition = new Vector2(0, -0.65f);
+            grabPoint.transform.localPosition = new Vector2(0, -0.7f);
             hitinfo = Physics2D.Raycast(rayPoint.position, -transform.up, rayDistance);
             Debug.DrawRay(rayPoint.position, -transform.up * rayDistance);
         }
 
-        checkPickUp(); 
+        if(hitinfo.collider != null)
+        {             
+            checkWork();
+            checkSmack();
+            checkStorage();
+        }
+        
+        checkPickUp();
         checkConnect();
-        checkWork();
-        checkSmack();
     }
     void checkPickUp()
-    {
-        if(hitinfo.collider != null)
+    {                
+        if(Input.GetKeyDown(KeyCode.G) && grabbedObject == null && (hitinfo.collider.gameObject.CompareTag("ItemMovable") || 
+        hitinfo.collider.gameObject.CompareTag("Workshop")))
         {
-            if(Input.GetKeyDown(KeyCode.G) && grabbedObject == null && (hitinfo.collider.gameObject.CompareTag("ItemMovable") || 
-            hitinfo.collider.gameObject.CompareTag("Workshop")))
-            {
-                grabbedObject = hitinfo.collider.gameObject;
-                grabbedObject.transform.position = grabPoint.position;
-                grabbedObject.transform.parent = transform;
-                return;
-            }
-        }
+            PickUp(hitinfo.collider.gameObject);
+            return;
+        }        
 
         if(Input.GetKeyDown(KeyCode.G) && grabbedObject != null)
         {
@@ -134,11 +134,11 @@ public class Interact : MonoBehaviour
     }
     void checkWork()
     {
-        if(Input.GetKeyDown(KeyCode.Z) && hitinfo.collider != null && hitinfo.collider.gameObject.CompareTag("Workshop"))
+        if(Input.GetKeyDown(KeyCode.Z) && hitinfo.collider.gameObject.CompareTag("Workshop"))
         {          
             prog_bar = hitinfo.collider.gameObject.GetComponent<UIDocument>().rootVisualElement.Q<ProgressBar>("ProgressBar");
             if(prog_bar.value < 100) prog_bar.value += 20;
-            else prog_bar.value = 0;    
+            else prog_bar.value = 0;
         }
     }
     void checkSmack()
@@ -148,5 +148,18 @@ public class Interact : MonoBehaviour
             NPC npc = hitinfo.collider.gameObject.GetComponent<NPC>();
             npc.setSmack(true);
         }
+    }
+    void checkStorage()
+    {
+        if(Input.GetKeyDown(KeyCode.R) && hitinfo.collider.gameObject.CompareTag("Storage"))
+        {
+            GameManager.manager.OpenInventory();
+        }
+    }
+    public void PickUp(GameObject gameObject)
+    {
+        grabbedObject = gameObject;
+        grabbedObject.transform.position = grabPoint.position;
+        grabbedObject.transform.parent = transform;
     }
 }

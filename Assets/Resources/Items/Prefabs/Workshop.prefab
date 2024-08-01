@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8887273185054866531}
   m_Layer: 0
   m_Name: Workshop
-  m_TagString: Untagged
+  m_TagString: Workshop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,8 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e973060a5725040b1a3fbed874a8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Icon: {fileID: -292233408, guid: 48db0398d205ae342b8cd0c51bd0b2d6, type: 3}
-  ItemName: Workshop
   itemdata: {fileID: 11400000, guid: e222ba0bb0ca6fc4c96e41bf01d946c5, type: 2}
 --- !u!1 &5667374436967152429
 GameObject:

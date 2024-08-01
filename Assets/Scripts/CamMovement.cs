@@ -8,32 +8,32 @@ public class CamMovement : MonoBehaviour
     [SerializeField] float rightBorder;
     [SerializeField] float upBorder;
     [SerializeField] float downBorder;
-    int mDelta = 10;
-    
+    Camera mainCamera;
+    int mDelta = 10;    
     void Start()
     {   
-
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.mousePosition.x >= Screen.width - mDelta && transform.position.x <= rightBorder)
+        if(Input.mousePosition.x >= Screen.width - mDelta && transform.position.x + mainCamera.orthographicSize * mainCamera.aspect <= rightBorder)
         {
             transform.position += Vector3.right * Time.deltaTime * 5f;
         }
 
-        if(Input.mousePosition.x <= 0 + mDelta && transform.position.x >= leftBorder)
+        if(Input.mousePosition.x <= 0 + mDelta && transform.position.x - mainCamera.orthographicSize * mainCamera.aspect >= leftBorder)
         {
             transform.position += Vector3.left * Time.deltaTime * 5f;
         }
 
-        if(Input.mousePosition.y >= Screen.height - mDelta && transform.position.y <= upBorder)
+        if(Input.mousePosition.y >= Screen.height - mDelta && transform.position.y + mainCamera.orthographicSize <= upBorder)
         {
             transform.position += Vector3.up * Time.deltaTime * 5f;
         }
 
-        if(Input.mousePosition.y <= 0 + mDelta && transform.position.y >= downBorder)
+        if(Input.mousePosition.y <= 0 + mDelta && transform.position.y - mainCamera.orthographicSize >= downBorder)
         {
             transform.position += Vector3.down * Time.deltaTime * 5f;
         }
@@ -42,6 +42,6 @@ public class CamMovement : MonoBehaviour
 
         size -= Input.mouseScrollDelta.y * 0.5f;
 
-        if(size > 1.9 && size < 7) Camera.main.orthographicSize = size; 
+        if(size > .5 && size < 2.61) Camera.main.orthographicSize = size; 
     }
 }

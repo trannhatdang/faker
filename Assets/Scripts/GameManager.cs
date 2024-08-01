@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public static InventoryUIController inventoryUIController {get; private set;}
     List<GameObject> AllNPCs;
     GameObject door;   
+    public GameState gameState {get; private set;}
     void Awake()
     {
         if(manager != null && manager != this)
@@ -30,19 +32,22 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         AllNPCs = Resources.LoadAll<GameObject>("NPCs").ToList();
-        if(GameObject.FindWithTag("UI").GetComponent<InventoryUIController>() != null) inventoryUIController = GameObject.FindWithTag("UI").GetComponent<InventoryUIController>();
+        gameState = Resources.Load<GameState>("ScriptableObjects/GameState");
+        
+        if(GameObject.FindWithTag("UI").GetComponent<InventoryUIController>() != null) 
+        {
+            inventoryUIController = GameObject.FindWithTag("UI").GetComponent<InventoryUIController>();
+        }
     }
     void Start()
     {
         door = GameObject.FindGameObjectWithTag("Door");
     }
-
     // Update is called once per frame
     void Update()
     {
         
     }
-
     // public IEnumerator Hire(string name)
     // {
     //     var toHire = AllNPCs.Find(x => x.name == name);
@@ -56,19 +61,16 @@ public class GameManager : MonoBehaviour
     //     Instantiate(toHire, door.transform.position, Quaternion.identity);
         
     // }
-
     public void Hire(string name)
     {
         GameObject toHire = AllNPCs.Find(x => x.name == name);
 
         Instantiate(toHire, door.transform.position, Quaternion.identity);
     }
-
     public void LoadScene(int ID)
     {
         StartCoroutine(LoadSceneAsync(ID));
     }
-
     IEnumerator LoadSceneAsync(int ID)
     {
         AsyncOperation LoadScene = SceneManager.LoadSceneAsync(ID);
@@ -86,5 +88,9 @@ public class GameManager : MonoBehaviour
     public void ChangeInventory()
     {        
         OnChangeInventory?.Invoke(this, EventArgs.Empty);
+    }
+    public void OpenInventory()
+    {
+        inventoryUIController.OpenInventory();
     }
 }
