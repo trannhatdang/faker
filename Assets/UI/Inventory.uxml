@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Inventory.uss?fileID=7433441132597879392&amp;guid=3f37c6d88b24c384a9ab6ccaa9e355a7&amp;type=3#Inventory" />
+    <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:VisualElement name="Inventory" style="flex-grow: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgb(128, 142, 155); border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 30px; margin-top: 88px; margin-right: 88px; margin-bottom: 88px; margin-left: 88px; width: 75%; height: 75%;">
+            <ui:Label text="Inventory" name="Header" style="font-size: 24px; color: rgb(60, 64, 198); -unity-font-style: bold; padding-bottom: 0; padding-top: 0; padding-right: 0; padding-left: 0; margin-bottom: 10px; margin-left: 12px;" />
+            <ui:VisualElement name="SlotContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

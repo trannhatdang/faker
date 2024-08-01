@@ -1,0 +1,15 @@
+.slotContainer {
+    width: 128px;
+    height: 128px;
+    margin: 5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.slotIcon {
+    padding: 15px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
