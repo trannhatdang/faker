@@ -21,3 +21,32 @@
     border-bottom-width: 5px;
     border-left-width: 5px;
 }
+
+.unity-top-toolbar {
+    margin-right: 90px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: rgb(255, 211, 42);
+    border-top-width: 6px;
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 6px;
+    border-left-color: rgb(128, 142, 155);
+    border-right-color: rgb(128, 142, 155);
+    border-top-color: rgb(128, 142, 155);
+    border-bottom-color: rgb(128, 142, 155);
+    -unity-text-align: upper-left;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    font-size: 32px;
+    -unity-font-style: bold;
+    color: rgb(30, 39, 46);
+    width: 161px;
+    height: 58px;
+    align-items: center;
+    padding-top: 4px;
+    padding-left: 7px;
+    flex-grow: 1;
+}

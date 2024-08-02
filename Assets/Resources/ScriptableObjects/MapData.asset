@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911bb48b711ac9c4eb4084c3c66c02ee, type: 3}
   m_Name: MapData
   m_EditorClassIdentifier: 
-  leftBorder: -2
-  rightBorder: 2
-  upBorder: 2
-  downBorder: -2
+  leftBorder: 2
+  rightBorder: 9
+  upBorder: -1.61
+  downBorder: -4.8

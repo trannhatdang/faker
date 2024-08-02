@@ -64,10 +64,7 @@ public class Overlay : MonoBehaviour
 
     void OnHire(string name)
     {
-        if(name == "RauHire")
-        {
-            GameManager.manager.Hire("ChuBanRau");
-        }
+        GameManager.manager.Hire(name);
     }
 
 }

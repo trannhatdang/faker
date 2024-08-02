@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ff5ce990809fd4ba9ae060a392b91a, type: 3}
   m_Name: Lights
   m_EditorClassIdentifier: 
-  ID: 0
-  ItemName: 
-  Icon: {fileID: 21300000, guid: b672344d83977ea4b92d823b96fa1425, type: 3}
+  ID: 2
+  ItemName: "\u0110\xE8n"
+  Icon: {fileID: 905024258411163469, guid: 71299cdf18072424287878af48c02ef5, type: 3}
+  Value: 1000000

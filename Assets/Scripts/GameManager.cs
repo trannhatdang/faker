@@ -11,13 +11,16 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager manager {get; private set;}
-    public event EventHandler OnChangeInventory;
-    public float LoadingValue {get; private set;}
-    public static InventoryUIController inventoryUIController {get; private set;}
     List<GameObject> AllNPCs;
     GameObject door;   
+    public static GameManager manager {get; private set;}
+    public float LoadingValue {get; private set;}
+    public static InventoryUIController inventoryUIController {get; private set;}
     public GameState gameState {get; private set;}
+    public event EventHandler OnChangeInventory;
+    public event EventHandler OnPausePressed;
+    public GameObject UI {get; private set;}
+    [SerializeField] Inventory inventory;
     void Awake()
     {
         if(manager != null && manager != this)
@@ -36,34 +39,34 @@ public class GameManager : MonoBehaviour
         
         if(GameObject.FindWithTag("UI").GetComponent<InventoryUIController>() != null) 
         {
-            inventoryUIController = GameObject.FindWithTag("UI").GetComponent<InventoryUIController>();
+            UI = GameObject.FindWithTag("UI");
+            inventoryUIController = UI.GetComponent<InventoryUIController>();
         }
     }
     void Start()
     {
         door = GameObject.FindGameObjectWithTag("Door");
     }
-    // Update is called once per frame
+    void FixedUpdate()
+    {
+        ChangeRating(-.1f);
+        if(gameState.Rating == 0) 
+        {
+            gameState.Rating = 1000f;
+        }
+    }
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnPausePressed?.Invoke(this, EventArgs.Empty);
+        }
     }
-    // public IEnumerator Hire(string name)
-    // {
-    //     var toHire = AllNPCs.Find(x => x.name == name);
-    //     float timer = 5f;
-
-    //     for(; timer >= 0; timer -= Time.deltaTime) 
-    //     {            
-    //         yield return null;
-    //     }        
-        
-    //     Instantiate(toHire, door.transform.position, Quaternion.identity);
-        
-    // }
     public void Hire(string name)
     {
         GameObject toHire = AllNPCs.Find(x => x.name == name);
+
+        Debug.Log(name);
 
         Instantiate(toHire, door.transform.position, Quaternion.identity);
     }
@@ -85,12 +88,21 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
-    public void ChangeInventory()
+    public void ChangeInventory(GameObject gameObject)
     {        
+        inventory.items.Add(gameObject);
         OnChangeInventory?.Invoke(this, EventArgs.Empty);
     }
     public void OpenInventory()
     {
         inventoryUIController.OpenInventory();
+    }
+    public void ChangeMoney(int value)
+    {
+        gameState.Money += value;
+    }
+    public void ChangeRating(float value)
+    {
+        gameState.Rating += value;
     }
 }

@@ -67,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -384,7 +384,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChuyenGia_0: -7766010049505878164
+      ChuyenGia_1: 6776473044397128330
+      ChuyenGia_10: -5682297843245326996
+      ChuyenGia_2: -7108297163291743329
+      ChuyenGia_3: 29992502230978455
+      ChuyenGia_4: 4800771218216968374
+      ChuyenGia_5: 7947331384650814547
+      ChuyenGia_6: 2555412070527728997
+      ChuyenGia_7: -8559697085271804071
+      ChuyenGia_8: -2043646413601514534
+      ChuyenGia_9: 574904616635150050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

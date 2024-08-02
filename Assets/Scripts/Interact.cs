@@ -70,13 +70,24 @@ public class Interact : MonoBehaviour
         checkConnect();
     }
     void checkPickUp()
-    {                
-        if(Input.GetKeyDown(KeyCode.G) && grabbedObject == null && (hitinfo.collider.gameObject.CompareTag("ItemMovable") || 
-        hitinfo.collider.gameObject.CompareTag("Workshop")))
-        {
+    {    
+        // VisualElement PickUpButton = GameManager.manager.UI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("SecondButton"); 
+
+        // if(hitinfo.collider.gameObject.CompareTag("ItemMovable") || hitinfo.collider.gameObject.CompareTag("Workshop"))
+        // {
+        //     PickUpButton.style.display = DisplayStyle.Flex;
+        // }
+        // else if(hitinfo.collider == null || !hitinfo.collider.gameObject.CompareTag("ItemMovable") || !hitinfo.collider.gameObject.CompareTag("Workshop"))
+        // {
+        //     PickUpButton.style.display = DisplayStyle.None;
+        // }
+                   
+        if(Input.GetKeyDown(KeyCode.G) && grabbedObject == null && hitinfo.collider != null && 
+            (hitinfo.collider.gameObject.CompareTag("ItemMovable") || hitinfo.collider.gameObject.CompareTag("Workshop")))
+        {            
             PickUp(hitinfo.collider.gameObject);
-            return;
-        }        
+            return;             
+        }
 
         if(Input.GetKeyDown(KeyCode.G) && grabbedObject != null)
         {
@@ -134,20 +145,39 @@ public class Interact : MonoBehaviour
     }
     void checkWork()
     {
-        if(Input.GetKeyDown(KeyCode.Z) && hitinfo.collider.gameObject.CompareTag("Workshop"))
-        {          
-            prog_bar = hitinfo.collider.gameObject.GetComponent<UIDocument>().rootVisualElement.Q<ProgressBar>("ProgressBar");
-            if(prog_bar.value < 100) prog_bar.value += 20;
-            else prog_bar.value = 0;
+        VisualElement WorkButton = GameManager.manager.UI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("FirstButton");
+        if(hitinfo.collider.gameObject.CompareTag("Workshop"))
+        {
+            WorkButton.style.display = DisplayStyle.Flex;
+            if(Input.GetKeyDown(KeyCode.Z) && hitinfo.collider.gameObject.CompareTag("Workshop"))
+            {          
+                prog_bar = hitinfo.collider.gameObject.GetComponent<UIDocument>().rootVisualElement.Q<ProgressBar>("ProgressBar");
+                if(prog_bar.value < 100) prog_bar.value += 1;
+                else prog_bar.value = 0;
+
+                if(prog_bar.value >= 100) 
+                {
+                    GameManager.manager.ChangeMoney(20000);
+                    prog_bar.value = 0;
+                }
+            }
         }
+        else WorkButton.style.display = DisplayStyle.None;
+        
     }
     void checkSmack()
     {
-        if(Input.GetKeyDown(KeyCode.R) && hitinfo.collider.gameObject.CompareTag("NPC"))
+        VisualElement SmackButton = GameManager.manager.UI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("ThirdButton");
+        if(hitinfo.collider.gameObject.CompareTag("NPC"))
         {
-            NPC npc = hitinfo.collider.gameObject.GetComponent<NPC>();
-            npc.setSmack(true);
-        }
+            SmackButton.style.display = DisplayStyle.Flex;
+            if(Input.GetKeyDown(KeyCode.R) && hitinfo.collider.gameObject.CompareTag("NPC"))
+            {
+                NPC npc = hitinfo.collider.gameObject.GetComponent<NPC>();
+                npc.setSmack(true);
+            }
+        } else SmackButton.style.display = DisplayStyle.None;
+        
     }
     void checkStorage()
     {

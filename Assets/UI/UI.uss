@@ -47,6 +47,8 @@
 
 .unity-text-element {
     -unity-font-definition: url("project://database/Assets/Fonts/Play-Regular.ttf?fileID=12800000&guid=2033b418ec009324099405f0f60a32e2&type=3#Play-Regular");
+    margin-bottom: -4px;
+    margin-top: -4px;
 }
 
 .small-button {
@@ -137,4 +139,22 @@
 .toolbar-button:hover {
     scale: 1 1;
     background-color: rgb(255, 168, 1);
+}
+
+.drawingElement {
+    width: 75%;
+    height: 75%;
+    align-self: center;
+    position: absolute;
+    top: 142px;
+    border-left-color: rgb(72, 84, 96);
+    border-right-color: rgb(72, 84, 96);
+    border-top-color: rgb(72, 84, 96);
+    border-bottom-color: rgb(72, 84, 96);
+    border-top-width: 16px;
+    border-right-width: 16px;
+    border-bottom-width: 16px;
+    border-left-width: 16px;
+    color: rgb(27, 27, 27);
+    background-color: rgb(210, 218, 226);
 }

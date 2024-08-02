@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,10 +130,10 @@ TextureImporter:
       name: BaGia_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 74
-        width: 17
-        height: 26
+        x: 1
+        y: 75
+        width: 15
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: BaGia_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 49
-        width: 17
-        height: 26
+        x: 17
+        y: 75
+        width: 15
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: BaGia_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 74
-        width: 17
-        height: 26
+        x: 35
+        y: 75
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: BaGia_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 49
-        width: 18
-        height: 26
+        x: 51
+        y: 75
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: BaGia_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 49
-        width: 17
-        height: 25
+        x: 0
+        y: 50
+        width: 16
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: BaGia_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 74
-        width: 17
-        height: 25
+        x: 17
+        y: 50
+        width: 16
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: BaGia_6
       rect:
         serializedVersion: 2
-        x: 50
-        y: 74
-        width: 18
-        height: 24
+        x: 34
+        y: 50
+        width: 15
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,10 +284,10 @@ TextureImporter:
       name: BaGia_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 24
-        width: 17
-        height: 26
+        x: 51
+        y: 50
+        width: 16
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: BaGia_8
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 17
-        height: 26
+        x: 1
+        y: 25
+        width: 15
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,9 +328,9 @@ TextureImporter:
       name: BaGia_9
       rect:
         serializedVersion: 2
-        x: 50
-        y: 49
-        width: 18
+        x: 17
+        y: 25
+        width: 15
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -346,11 +346,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BaGia_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 10
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa4124082dfbdc4e8c1d5c26ca50ac7
+      internalID: -1503582349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8fa849544d3c0094f8da87ac032a0401
     internalID: 0
     vertices: []
     indices: 
@@ -359,7 +381,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BaGia_0: -8804738770020674330
+      BaGia_1: 614346071621925273
+      BaGia_10: -1503582349
+      BaGia_2: 6109097545143845210
+      BaGia_3: 3855619379928780308
+      BaGia_4: -7081562808354930738
+      BaGia_5: 3453497564759335728
+      BaGia_6: 4414177311575748878
+      BaGia_7: 2132522597514713785
+      BaGia_8: -9187332789641119632
+      BaGia_9: 6529938790825349540
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

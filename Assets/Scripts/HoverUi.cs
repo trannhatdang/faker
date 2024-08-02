@@ -20,6 +20,11 @@ public class HoverUi : MonoBehaviour
     {
         SetPosition();
         SetSize();
+
+        if(prog_bar.value == 100) 
+        {
+            prog_bar.value = 0;
+        }
     }
 
     void SetPosition()

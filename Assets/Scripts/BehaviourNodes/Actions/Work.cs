@@ -19,6 +19,12 @@ public class Work : Node
         
         ProgressBar prog_bar = npc.getWorkSpot().transform.parent.GetComponent<UIDocument>().rootVisualElement.Q<ProgressBar>("ProgressBar");
         prog_bar.value += npc.getNPCData().workPower;
+
+        if(prog_bar.value >= 100) 
+        {
+            GameManager.manager.ChangeMoney(20000);
+            prog_bar.value = 0;
+        }
         
         return NodeStatus.Success;        
     }

@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - Inventory
   - Storage
+  - DrawingTable
   layers:
   - Default
   - TransparentFX

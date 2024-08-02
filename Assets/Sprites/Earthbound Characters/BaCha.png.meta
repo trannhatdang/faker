@@ -67,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -384,7 +384,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BaCha_0: -3707722271898272047
+      BaCha_1: -6623184036876386200
+      BaCha_10: 7007428262930903593
+      BaCha_2: 6173892618856841991
+      BaCha_3: 2687282279824928203
+      BaCha_4: 6026973730293080561
+      BaCha_5: 7633678790898104101
+      BaCha_6: -2880571343680017799
+      BaCha_7: 3128935775823812762
+      BaCha_8: -7432532870447551955
+      BaCha_9: -8179664646990877241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

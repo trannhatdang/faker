@@ -2,6 +2,11 @@
     <Style src="project://database/Assets/UI/UI.uss?fileID=7433441132597879392&amp;guid=fec91f0ce10da1548a652c8de0fa4c15&amp;type=3#UI" />
     <Style src="project://database/Assets/UI/Overlay.uss?fileID=7433441132597879392&amp;guid=e2d6b209ee188cc4d9c08ad1b33ca8c6&amp;type=3#Overlay" />
     <Style src="project://database/Assets/UI/Inventory.uss?fileID=7433441132597879392&amp;guid=3f37c6d88b24c384a9ab6ccaa9e355a7&amp;type=3#Inventory" />
+    <ui:VisualElement name="TopToolbar" style="flex-grow: 1; flex-shrink: 0; height: 87px; flex-direction: row; justify-content: center;">
+        <ui:Label text="Tiền: " name="Money" class="unity-top-toolbar" />
+        <ui:Label text="Rating: " name="Rating" class="unity-top-toolbar" />
+        <ui:VisualElement style="flex-grow: 0; width: 1121px;" />
+    </ui:VisualElement>
     <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 6839px;" />
     <ui:VisualElement name="BottomToolbar" style="flex-direction: row; height: 602px;">
         <ui:Button name="Shop" enabled="true" class="toolbar-button" style="margin-top: 16px; margin-right: 16px; margin-bottom: 16px; margin-left: 16px; height: 50px;">
@@ -11,21 +16,21 @@
         <ui:VisualElement name="ControlsOverlay" style="flex-grow: 1; flex-direction: row;">
             <ui:VisualElement name="FirstButton" class="overlayControl" style="flex-grow: 1; flex-direction: row;">
                 <ui:VisualElement style="background-color: rgb(128, 142, 155); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; margin-bottom: 4px; margin-top: 4px; margin-right: 2px; margin-left: 2px; -unity-text-align: upper-center; align-self: center; flex-grow: 0; width: 62px; height: 55px; justify-content: center;">
-                    <ui:Label text="Label" name="ButtonName" />
+                    <ui:Label text="Z" name="ButtonName" style="font-size: 24px;" />
                 </ui:VisualElement>
-                <ui:Label text="Move" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
+                <ui:Label text="Làm Việc" enable-rich-text="true" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:VisualElement name="SecondButton" class="overlayControl" style="flex-grow: 1; flex-direction: row;">
                 <ui:VisualElement style="background-color: rgb(128, 142, 155); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; margin-bottom: 4px; margin-top: 4px; margin-right: 2px; margin-left: 2px; -unity-text-align: upper-center; align-self: center; flex-grow: 0; width: 62px; height: 55px; justify-content: center;">
-                    <ui:Label text="Label" name="ButtonName" />
+                    <ui:Label text="G" name="ButtonName" style="font-size: 25px;" />
                 </ui:VisualElement>
-                <ui:Label text="Move" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
+                <ui:Label text="Di chuyển" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
             </ui:VisualElement>
             <ui:VisualElement name="ThirdButton" class="overlayControl">
                 <ui:VisualElement style="background-color: rgb(128, 142, 155); border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom-right-radius: 18px; border-bottom-left-radius: 18px; border-left-color: rgb(72, 84, 96); border-right-color: rgb(72, 84, 96); border-top-color: rgb(72, 84, 96); border-bottom-color: rgb(72, 84, 96); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px; margin-bottom: 4px; margin-top: 4px; margin-right: 2px; margin-left: 2px; -unity-text-align: upper-center; align-self: center; flex-grow: 0; width: 62px; height: 55px; justify-content: center;">
-                    <ui:Label text="Label" name="ButtonName" />
+                    <ui:Label text="R" name="ButtonName" style="font-size: 25px;" />
                 </ui:VisualElement>
-                <ui:Label text="Move" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
+                <ui:Label text="Đánh" style="flex-grow: 0; flex-shrink: 1; -unity-text-align: upper-center; align-self: center; justify-content: center; align-content: center; border-left-width: 10px; -unity-font-style: bold;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 0; width: 357px;" />
@@ -44,7 +49,7 @@
                                 </ui:VisualElement>
                                 <ui:Label text="Label" name="npc-name" style="font-size: 38px;" />
                                 <ui:Label text="Label" display-tooltip-when-elided="true" name="npc-description" style="font-size: 22px;" />
-                                <ui:Button text="Thuê" name="RauHire" class="hire-button" style="background-image: none;" />
+                                <ui:Button text="Thuê" name="Hire" class="hire-button" style="background-image: none;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>

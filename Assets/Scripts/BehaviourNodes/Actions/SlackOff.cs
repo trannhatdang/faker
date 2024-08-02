@@ -21,11 +21,11 @@ public class SlackOff : Node
             return NodeStatus.Failure;
         }
 
-        if(EvaluationCount == 0 || UnityEngine.Vector3.Distance(npc.transform.position, newPos) < 1f)
+        if(EvaluationCount == 0 || Vector3.Distance(npc.transform.position, newPos) < 1f)
         {
             float xPos = Random.Range(npc.getMapData().leftBorder, npc.getMapData().rightBorder);
             float yPos = Random.Range(npc.getMapData().downBorder, npc.getMapData().upBorder);
-            newPos = new UnityEngine.Vector3(xPos, yPos, 0);
+            newPos = new Vector3(xPos, yPos, 0);
         }
 
         rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y).normalized * npc.getNPCData().walkSpeed / 100 * Time.fixedDeltaTime);

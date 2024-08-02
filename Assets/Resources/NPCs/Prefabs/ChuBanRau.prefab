@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorkSpot: {fileID: 0}
   npcData: {fileID: 11400000, guid: 5192531fb4339f441a8ad96d5d5f9803, type: 2}
-  mapData: {fileID: 0}
+  mapData: {fileID: 11400000, guid: 5e6d54bffc0a94145903294c2654fa38, type: 2}
   rayPoint: {fileID: 8331938960735324794}
 --- !u!195 &1699963493407882886
 NavMeshAgent:

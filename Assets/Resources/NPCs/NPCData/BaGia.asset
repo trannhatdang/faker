@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPCName: "B\xE0 gi\xE0"
   NPCDescription: Sad
-  NPCSprite: {fileID: 0}
-  workPower: 0
-  walkSpeed: 0
+  NPCSprite: {fileID: -1503582349, guid: fa9ba6a9831bcce4589b5c703ad38808, type: 3}
+  workPower: 0.001
+  walkSpeed: 1
   WindowDistance: 0
-  ChanceToClose: 0
-  ChanceToSlack: 0
-  smackTimer: 0
+  ChanceToClose: 10
+  ChanceToSlack: 0.5
+  smackTimer: 30

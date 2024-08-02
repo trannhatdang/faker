@@ -4,5 +4,5 @@ using UnityEngine;
 public class GameState : ScriptableObject
 {
     public int Money = 0;
-    public int Rating = 1000;
+    public float Rating = 1000f;
 }

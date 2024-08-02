@@ -35,21 +35,6 @@ public class NPC : MonoBehaviour, IBehaviorTree
 
     private void GenerateBehaviorTree()
     {
-        // BehaviorTree = 
-        //     new SelectorComposite("Control NPC",
-        //         new SequenceComposite("Do they have a workshop?",
-        //             new DoesntHaveWorkshop(this),
-        //             new NotHavingWorkshop(this)),
-        //         new SequenceComposite("Are they going to slack off?",
-        //             new IsGoingToSlackoff(this),
-        //             new SlackOff(this)),
-        //         new SequenceComposite("Are they going to close a window?",
-        //             new IsGoingToCloseWindow(npcData.WindowDistance, this),
-        //             new CloseWindow(this)),
-        //         new SequenceComposite("Work Sequence",
-        //             new GoingToWork(this),
-        //             new Work(this)));
-
         BehaviorTree = 
             new FocusOnLastComposite("Control NPC",
                 new SequenceComposite("Do they have a workshop?",
@@ -106,7 +91,7 @@ public class NPC : MonoBehaviour, IBehaviorTree
         if(isSmacked) 
         {
             smackTimer -= Time.deltaTime;
-            // Debug.Log("SmackTimer con " + smackTimer);
+            Debug.Log("SmackTimer con " + smackTimer);
         }
         
         if(smackTimer <= 0) 

@@ -12,7 +12,8 @@ public class ItemListController
     Label m_NPCName;
     VisualElement m_NPCSprite;    
     List<NPCData> m_AllNPC;   
-    VisualElement m_detailsPanel; 
+    VisualElement m_detailsPanel;
+    Button m_btn;
     public void InitializeCharacterList(VisualElement root, VisualTreeAsset listElementTemplate)
     {
         EnumerateAllItems();    
@@ -26,6 +27,7 @@ public class ItemListController
         m_NPCName = root.Q<Label>("npc-name");
         m_NPCSprite = root.Q<VisualElement>("npc-sprite");
         m_detailsPanel = root.Q<VisualElement>("right-container");
+        m_btn = root.Q<Button>(className: "hire-button");
 
         m_detailsPanel.style.display = DisplayStyle.None;  
 
@@ -96,5 +98,6 @@ public class ItemListController
         m_NPCDescription.text = selectedCharacter.NPCDescription.ToString();
         m_NPCName.text = selectedCharacter.NPCName;
         m_NPCSprite.style.backgroundImage = new StyleBackground(selectedCharacter.NPCSprite);
+        m_btn.name = selectedCharacter.name;
     }
 }
