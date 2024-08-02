@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
     
-public class NPCListController
+public class ItemsListController
 {
     // UXML template for list entries
     VisualTreeAsset m_ListEntryTemplate;
@@ -11,7 +11,7 @@ public class NPCListController
     Label m_NPCDescription;
     Label m_NPCName;
     VisualElement m_NPCSprite;    
-    List<NPCData> m_AllNPC;   
+    List<ItemData> m_AllNPC;   
     VisualElement m_detailsPanel;
     Button m_btn;
     public void InitializeCharacterList(VisualElement root, VisualTreeAsset listElementTemplate)
@@ -20,14 +20,14 @@ public class NPCListController
         
         m_ListEntryTemplate = listElementTemplate;    
          
-        m_NPCList = root.Q<ListView>("npc-list");
+        m_NPCList = root.Q<ListView>("item-list");
     
         // Store references to the selected character info elements
-        m_NPCDescription = root.Q<Label>("npc-description");
-        m_NPCName = root.Q<Label>("npc-name");
-        m_NPCSprite = root.Q<VisualElement>("npc-sprite");
+        m_NPCDescription = root.Q<Label>("item-description");
+        m_NPCName = root.Q<Label>("item-name");
+        m_NPCSprite = root.Q<VisualElement>("item-sprite");
         m_detailsPanel = root.Q<VisualElement>("right-container");
-        m_btn = root.Q<Button>(className: "hire-button");
+        m_btn = root.Q<Button>(className: "buy-button");
 
         m_detailsPanel.style.display = DisplayStyle.None;  
 
@@ -39,8 +39,8 @@ public class NPCListController
     
     void EnumerateAllItems()
     {
-        m_AllNPC = new List<NPCData>();
-        m_AllNPC.AddRange(Resources.LoadAll<NPCData>("NPCs"));
+        m_AllNPC = new List<ItemData>();
+        m_AllNPC.AddRange(Resources.LoadAll<ItemData>("Items"));
     }
     
     void FillItemList()
@@ -67,7 +67,7 @@ public class NPCListController
         // Set up bind function for a specific list entry
         m_NPCList.bindItem = (item, index) =>
         {
-            (item.userData as NPCListEntryController)?.SetCharacterData(m_AllNPC[index]);
+            (item.userData as ItemsListEntryController)?.SetCharacterData(m_AllNPC[index]);
         };
     
         // Set a fixed item height matching the height of the item provided in makeItem. 
@@ -81,7 +81,7 @@ public class NPCListController
     void OnCharacterSelected(IEnumerable<object> selectedItems)
     {
         // Get the currently selected item directly from the ListView
-        var selectedCharacter = m_NPCList.selectedItem as NPCData;
+        var selectedCharacter = m_NPCList.selectedItem as ItemData;
         
     
         // Handle none-selection (Escape to deselect everything)
@@ -95,9 +95,9 @@ public class NPCListController
         m_detailsPanel.style.display = DisplayStyle.Flex;  
     
         // Fill in character details
-        m_NPCDescription.text = selectedCharacter.NPCDescription.ToString();
-        m_NPCName.text = selectedCharacter.NPCName;
-        m_NPCSprite.style.backgroundImage = new StyleBackground(selectedCharacter.NPCSprite);
+        m_NPCDescription.text = selectedCharacter.itemDescription.ToString();
+        m_NPCName.text = selectedCharacter.ItemName;
+        m_NPCSprite.style.backgroundImage = new StyleBackground(selectedCharacter.Icon);
         m_btn.name = selectedCharacter.name;
     }
 }

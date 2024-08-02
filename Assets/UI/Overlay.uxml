@@ -49,14 +49,29 @@
                                 </ui:VisualElement>
                                 <ui:Label text="Label" name="npc-name" style="font-size: 38px;" />
                                 <ui:Label text="Label" display-tooltip-when-elided="true" name="npc-description" style="font-size: 22px;" />
-                                <ui:Button text="Thuê" name="Hire" class="hire-button" style="background-image: none;" />
+                                <ui:Button text="Thuê" name="Buyyy" class="hire-button" style="background-image: none;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:Tab>
-                <ui:Tab label="Upgrades" />
-                <ui:Tab label="Items" />
-                <ui:Tab label="Factories" />
+                <ui:Tab label="Upgrades" name="Upgrades" />
+                <ui:Tab label="Items" name="Items">
+                    <ui:ListView focusable="true" name="WorkersList" style="padding-top: 0; max-height: none; min-height: auto;" />
+                    <ui:VisualElement name="main-container" style="margin-left: 20px; margin-right: 20px;">
+                        <ui:ListView focusable="true" name="item-list" style="height: 720px; background-color: rgb(255, 192, 72);" />
+                        <ui:VisualElement name="right-container" style="position: absolute; align-self: flex-end; right: 34px; top: 113px;">
+                            <ui:VisualElement name="details-container" style="border-left-color: rgb(60, 64, 198); border-right-color: rgb(60, 64, 198); border-top-color: rgb(60, 64, 198); border-bottom-color: rgb(60, 64, 198); border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; align-items: center; background-color: rgb(128, 142, 155); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">
+                                <ui:VisualElement name="details" style="height: 200px; width: 241px; background-color: rgb(5, 196, 107); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(11, 232, 129); border-right-color: rgb(11, 232, 129); border-top-color: rgb(11, 232, 129); border-bottom-color: rgb(11, 232, 129); margin-right: 20px; margin-top: 20px; margin-bottom: 20px; margin-left: 20px;">
+                                    <ui:VisualElement name="item-sprite" style="flex-grow: 1; padding-right: 0;" />
+                                </ui:VisualElement>
+                                <ui:Label text="Label" name="item-name" style="font-size: 38px;" />
+                                <ui:Label text="Label" display-tooltip-when-elided="true" name="item-description" style="font-size: 22px;" />
+                                <ui:Button text="Mua" name="Buyyy" class="buy-button" style="background-image: none;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:Tab>
+                <ui:Tab label="Factories" name="Factories" />
             </ui:TabView>
         </ui:VisualElement>
         <ui:Button text="X" name="ExitShop" class="small-button" style="width: 37px; position: absolute; top: 6px; left: 1450px; height: 33px;" />

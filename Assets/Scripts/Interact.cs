@@ -77,10 +77,6 @@ public class Interact : MonoBehaviour
         // {
         //     PickUpButton.style.display = DisplayStyle.Flex;
         // }
-        // else if(hitinfo.collider == null || !hitinfo.collider.gameObject.CompareTag("ItemMovable") || !hitinfo.collider.gameObject.CompareTag("Workshop"))
-        // {
-        //     PickUpButton.style.display = DisplayStyle.None;
-        // }
                    
         if(Input.GetKeyDown(KeyCode.G) && grabbedObject == null && hitinfo.collider != null && 
             (hitinfo.collider.gameObject.CompareTag("ItemMovable") || hitinfo.collider.gameObject.CompareTag("Workshop")))

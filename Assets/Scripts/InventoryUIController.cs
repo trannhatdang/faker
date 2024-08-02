@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.EventSystems;
-using System.ComponentModel;
-using UnityEditor.Search;
 public class InventoryUIController : MonoBehaviour
 {
     [SerializeField] Inventory inventoryData;
@@ -47,6 +44,8 @@ public class InventoryUIController : MonoBehaviour
         m_ContextMenu.style.display = DisplayStyle.None;
 
         exitInventory.clicked += OnExitClicked; 
+
+        GameManager.manager.OnChangeInventory += OnInventoryChanged;
 
         m_GhostSprite.RegisterCallback<PointerMoveEvent>(OnPointerMove);
         m_GhostSprite.RegisterCallback<PointerUpEvent>(OnPointerUp);
@@ -126,13 +125,16 @@ public class InventoryUIController : MonoBehaviour
     }
     void OnInventoryChanged(object sender, EventArgs e)
     {
+        m_SlotContainer.Clear();
         for (int i = 0; i < 50; i++)
         {
             UIInventorySlot item;
             if(inventoryData.items[i] != null) item = new UIInventorySlot(inventoryData.items[i]);
             else item = new UIInventorySlot();
+
+            Debug.Log("HI");
             
-            UIItems.Add(item);
+            UIItems[i] = item;
             m_SlotContainer.Add(item);
         }
     }

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: NhanVienSale
   m_EditorClassIdentifier: 
   NPCName: "Nh\xE2n vi\xEAn Sale"
-  NPCDescription: "b\u1EF1a"
+  NPCDescription: "x\u1ECBn, gi\xE1 200000"
   NPCSprite: {fileID: -8179664646990877241, guid: 419b9883606134143bb93c3d134c9350, type: 3}
-  workPower: 0.05
+  workPower: 0.3
   walkSpeed: 1
   WindowDistance: 0
   ChanceToClose: 0
   ChanceToSlack: 0.1
   smackTimer: 40
+  value: 200000

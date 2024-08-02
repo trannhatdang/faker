@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,6 +11,7 @@ public class Overlay : MonoBehaviour
     Button ShopButton;
     Button CloseShop;
     List<Button> HireButtons;
+    List<Button> BuyButtons;
     void Start()
     {
         overlay = GetComponent<UIDocument>().rootVisualElement;
@@ -22,6 +20,7 @@ public class Overlay : MonoBehaviour
         CloseShop = overlay.Q<Button>("ExitShop");
         ShopButton = overlay.Q<Button>("Shop");
         HireButtons = overlay.Query<Button>(className: "hire-button").ToList();
+        BuyButtons = overlay.Query<Button>(className: "buy-button").ToList();
 
         ShopButton.clicked += OnShopClick;
         CloseShop.clicked += OnShopExitClick;             
@@ -33,6 +32,15 @@ public class Overlay : MonoBehaviour
                 OnHire(button.name);
             };
         }        
+        
+        foreach(Button button in BuyButtons)
+        {
+            button.clicked += () =>
+            {
+                OnBuy(button.name);
+            };
+        }        
+
 
         ShopPopup.style.display = DisplayStyle.None;
 
@@ -65,6 +73,10 @@ public class Overlay : MonoBehaviour
     void OnHire(string name)
     {
         GameManager.manager.Hire(name);
+    }
+    void OnBuy(string name)
+    {
+        GameManager.manager.Buy(name);
     }
 
 }

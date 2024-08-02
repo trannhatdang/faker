@@ -14,4 +14,5 @@ public class NPCData : ScriptableObject
     public float ChanceToClose;
     public float ChanceToSlack;
     public float smackTimer;
+    public int value;
 }

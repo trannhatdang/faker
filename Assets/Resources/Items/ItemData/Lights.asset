@@ -16,3 +16,4 @@ MonoBehaviour:
   ItemName: "\u0110\xE8n"
   Icon: {fileID: 905024258411163469, guid: 71299cdf18072424287878af48c02ef5, type: 3}
   Value: 1000000
+  itemDescription: "Gi\xE1: 1000000"

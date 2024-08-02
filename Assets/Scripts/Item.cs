@@ -1,8 +1,4 @@
-using System;
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Item : MonoBehaviour
 {

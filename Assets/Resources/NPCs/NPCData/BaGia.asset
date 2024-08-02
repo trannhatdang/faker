@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: BaGia
   m_EditorClassIdentifier: 
   NPCName: "B\xE0 gi\xE0"
-  NPCDescription: Sad
+  NPCDescription: "Sad; gi\xE1 40000"
   NPCSprite: {fileID: -1503582349, guid: fa9ba6a9831bcce4589b5c703ad38808, type: 3}
-  workPower: 0.001
+  workPower: 0.2
   walkSpeed: 1
   WindowDistance: 0
   ChanceToClose: 10
   ChanceToSlack: 0.5
   smackTimer: 30
+  value: 40000

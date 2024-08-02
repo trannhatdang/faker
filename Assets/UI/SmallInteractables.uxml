@@ -1,4 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/SmallObjects.uss?fileID=7433441132597879392&amp;guid=4c9d608fc536d9243a14d9ac5b2f9593&amp;type=3#SmallObjects" />
-    <ui:ProgressBar value="0" title="Progress" name="ProgressBar" style="background-color: rgba(0, 0, 0, 0); height: 24px; width: 172px;" />
+    <ui:ProgressBar value="0" title="Đang làm đồ giả..." name="ProgressBar" style="background-color: rgba(0, 0, 0, 0); height: 24px; width: 172px;" />
 </ui:UXML>

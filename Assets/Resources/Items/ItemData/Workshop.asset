@@ -15,3 +15,5 @@ MonoBehaviour:
   ID: 0
   ItemName: Workshop
   Icon: {fileID: -292233408, guid: 48db0398d205ae342b8cd0c51bd0b2d6, type: 3}
+  Value: 300000
+  itemDescription: "Gi\xE1: 300000"

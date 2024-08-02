@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ThoLanhNghe
   m_EditorClassIdentifier: 
   NPCName: "Th\u1EE3 l\xE0nh ngh\u1EC1"
-  NPCDescription: "qu\xE1 \u0111\xE3"
-  NPCSprite: {fileID: 574904616635150050, guid: de850d9aa14abc64cabac9f294447df5, type: 3}
-  workPower: 0.1
+  NPCDescription: "L\xE0m nhanh h\u01A1n x\xEDu, ch\u1EAFc z; gi\xE1 1000000"
+  NPCSprite: {fileID: 4477079339819025140, guid: f7f35e3a6446aba4bb2580602331f87d, type: 3}
+  workPower: 0.5
   walkSpeed: 1
   WindowDistance: 0
   ChanceToClose: 0
   ChanceToSlack: 0.05
   smackTimer: 60
+  value: 1000000

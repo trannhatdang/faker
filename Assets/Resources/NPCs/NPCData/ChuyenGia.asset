@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChuyenGia
   m_EditorClassIdentifier: 
   NPCName: "Chuy\xEAn Gia"
-  NPCDescription: "qu\xE1 \u0111\xE3"
+  NPCDescription: "qu\xE1 \u0111\xE3; gi\xE1 10000000"
   NPCSprite: {fileID: 574904616635150050, guid: de850d9aa14abc64cabac9f294447df5, type: 3}
   workPower: 1
   walkSpeed: 1
@@ -21,3 +21,4 @@ MonoBehaviour:
   ChanceToClose: 0
   ChanceToSlack: 0.05
   smackTimer: 120
+  value: 100000

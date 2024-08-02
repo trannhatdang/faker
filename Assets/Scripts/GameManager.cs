@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Android;
@@ -12,6 +13,7 @@ using UnityEngine.UIElements;
 public class GameManager : MonoBehaviour
 {
     List<GameObject> AllNPCs;
+    List<GameObject> AllItems;
     GameObject door;   
     public static GameManager manager {get; private set;}
     public float LoadingValue {get; private set;}
@@ -35,7 +37,17 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
 
         AllNPCs = Resources.LoadAll<GameObject>("NPCs").ToList();
+        AllItems = Resources.LoadAll<GameObject>("Items").ToList();
         gameState = Resources.Load<GameState>("ScriptableObjects/GameState");
+
+        inventory.items = new List<GameObject>(50);
+
+        for(int i = 0; i < 50; i++)
+        {
+            inventory.items.Add(null);
+        }
+        gameState.Money = 0;
+        gameState.Rating = 1000f;
         
         if(GameObject.FindWithTag("UI").GetComponent<InventoryUIController>() != null) 
         {
@@ -68,7 +80,23 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(name);
 
+        if(gameState.Money < toHire.GetComponent<NPC>().getNPCData().value) return;
+
         Instantiate(toHire, door.transform.position, Quaternion.identity);
+
+        ChangeMoney(-toHire.GetComponent<NPC>().getNPCData().value);
+    }
+    public void Buy(string name)
+    {
+        GameObject toBuy = AllItems.Find(x => x.name == name);
+
+        Debug.Log(name);
+
+        if(gameState.Money < toBuy.GetComponent<Item>().GetItemData().Value) return;
+
+        ChangeInventory(toBuy);
+
+        ChangeMoney(-toBuy.GetComponent<Item>().GetItemData().Value);
     }
     public void LoadScene(int ID)
     {
@@ -89,8 +117,10 @@ public class GameManager : MonoBehaviour
         }
     }
     public void ChangeInventory(GameObject gameObject)
-    {        
-        inventory.items.Add(gameObject);
+    {   
+        int randomInt = UnityEngine.Random.Range(0, 50);
+        while(inventory.items[randomInt] != null) randomInt = UnityEngine.Random.Range(0, 50);
+        inventory.items[randomInt] = gameObject;
         OnChangeInventory?.Invoke(this, EventArgs.Empty);
     }
     public void OpenInventory()
@@ -104,5 +134,7 @@ public class GameManager : MonoBehaviour
     public void ChangeRating(float value)
     {
         gameState.Rating += value;
+
+        if(gameState.Rating <= 0) gameState.Rating = 1000f;
     }
 }

@@ -12,7 +12,9 @@ public class FillShopData : MonoBehaviour
         var uiDocument = GetComponent<UIDocument>();
     
         // Initialize the character list controller
-        var WorkersListController = new ItemListController();
+        var WorkersListController = new NPCListController();
+        var ItemsListController = new ItemsListController();
         WorkersListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Workers"), m_ListEntryTemplate);
+        ItemsListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Items"), m_ListEntryTemplate);
     }
 }
