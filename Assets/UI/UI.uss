@@ -158,3 +158,11 @@
     color: rgb(27, 27, 27);
     background-color: rgb(210, 218, 226);
 }
+
+.upgrades-button {
+    background-image: none;
+}
+
+.factory-name {
+    background-image: none;
+}

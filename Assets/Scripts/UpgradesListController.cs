@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
     
-public class ItemsListController
+public class UpgradesListController
 {
     // UXML template for list entries
     VisualTreeAsset m_ListEntryTemplate;
@@ -20,14 +20,14 @@ public class ItemsListController
         
         m_ListEntryTemplate = listElementTemplate;    
          
-        m_NPCList = root.Q<ListView>("item-list");
+        m_NPCList = root.Q<ListView>("upgrades-list");
     
         // Store references to the selected character info elements
-        m_NPCDescription = root.Q<Label>("item-description");
-        m_NPCName = root.Q<Label>("item-name");
-        m_NPCSprite = root.Q<VisualElement>("item-sprite");
+        m_NPCDescription = root.Q<Label>("upgrades-description");
+        m_NPCName = root.Q<Label>("upgrades-name");
+        m_NPCSprite = root.Q<VisualElement>("upgrades-sprite");
         m_detailsPanel = root.Q<VisualElement>("right-container");
-        m_btn = root.Q<Button>(className: "buy-button");
+        m_btn = root.Q<Button>(className: "upgrades-button");
 
         m_detailsPanel.style.display = DisplayStyle.None;  
 
@@ -40,7 +40,7 @@ public class ItemsListController
     void EnumerateAllItems()
     {
         m_AllNPC = new List<ItemData>();
-        m_AllNPC.AddRange(Resources.LoadAll<ItemData>("Items"));
+        m_AllNPC.AddRange(Resources.LoadAll<ItemData>("Upgrades"));
     }
     
     void FillItemList()

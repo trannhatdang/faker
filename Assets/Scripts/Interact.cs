@@ -158,19 +158,28 @@ public class Interact : MonoBehaviour
                 }
             }
         }
-        else WorkButton.style.display = DisplayStyle.None;
-        
+        else WorkButton.style.display = DisplayStyle.None;        
     }
     void checkSmack()
     {
         VisualElement SmackButton = GameManager.manager.UI.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("ThirdButton");
-        if(hitinfo.collider.gameObject.CompareTag("NPC"))
+        if(hitinfo.collider.gameObject.CompareTag("NPC") || hitinfo.collider.gameObject.CompareTag("Pedestrians"))
         {
             SmackButton.style.display = DisplayStyle.Flex;
-            if(Input.GetKeyDown(KeyCode.R) && hitinfo.collider.gameObject.CompareTag("NPC"))
+            if(Input.GetKeyDown(KeyCode.R))
             {
                 NPC npc = hitinfo.collider.gameObject.GetComponent<NPC>();
-                npc.setSmack(true);
+                if(npc == null)
+                {
+                    Pedestrians pedestrians = hitinfo.collider.gameObject.GetComponent<Pedestrians>();
+                    pedestrians.setSmack(true);                    
+                    GameManager.manager.PlaySmackSound();
+                }
+                else
+                {
+                    npc.setSmack(true);
+                    GameManager.manager.PlaySmackSound();
+                }
             }
         } else SmackButton.style.display = DisplayStyle.None;
         

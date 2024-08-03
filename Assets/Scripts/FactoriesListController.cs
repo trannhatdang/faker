@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
     
-public class ItemsListController
+public class FactoriesListController
 {
     // UXML template for list entries
     VisualTreeAsset m_ListEntryTemplate;
@@ -11,7 +11,7 @@ public class ItemsListController
     Label m_NPCDescription;
     Label m_NPCName;
     VisualElement m_NPCSprite;    
-    List<ItemData> m_AllNPC;   
+    List<FactoriesData> m_AllNPC;   
     VisualElement m_detailsPanel;
     Button m_btn;
     public void InitializeCharacterList(VisualElement root, VisualTreeAsset listElementTemplate)
@@ -20,14 +20,14 @@ public class ItemsListController
         
         m_ListEntryTemplate = listElementTemplate;    
          
-        m_NPCList = root.Q<ListView>("item-list");
+        m_NPCList = root.Q<ListView>("factories-list");
     
         // Store references to the selected character info elements
-        m_NPCDescription = root.Q<Label>("item-description");
-        m_NPCName = root.Q<Label>("item-name");
-        m_NPCSprite = root.Q<VisualElement>("item-sprite");
+        m_NPCDescription = root.Q<Label>("factories-description");
+        m_NPCName = root.Q<Label>("factories-name");
+        m_NPCSprite = root.Q<VisualElement>("factories-sprite");
         m_detailsPanel = root.Q<VisualElement>("right-container");
-        m_btn = root.Q<Button>(className: "buy-button");
+        m_btn = root.Q<Button>(className: "factories-button");
 
         m_detailsPanel.style.display = DisplayStyle.None;  
 
@@ -39,8 +39,8 @@ public class ItemsListController
     
     void EnumerateAllItems()
     {
-        m_AllNPC = new List<ItemData>();
-        m_AllNPC.AddRange(Resources.LoadAll<ItemData>("Items"));
+        m_AllNPC = new List<FactoriesData>();
+        m_AllNPC.AddRange(Resources.LoadAll<FactoriesData>("Factories"));
     }
     
     void FillItemList()
@@ -52,7 +52,7 @@ public class ItemsListController
             var newListEntry = m_ListEntryTemplate.Instantiate();
     
             // Instantiate a controller for the data
-            var newListEntryLogic = new ItemsListEntryController();
+            var newListEntryLogic = new FactoriesListEntryController();
     
             // Assign the controller script to the visual element
             newListEntry.userData = newListEntryLogic;
@@ -67,7 +67,7 @@ public class ItemsListController
         // Set up bind function for a specific list entry
         m_NPCList.bindItem = (item, index) =>
         {
-            (item.userData as ItemsListEntryController)?.SetCharacterData(m_AllNPC[index]);
+            (item.userData as FactoriesListEntryController)?.SetCharacterData(m_AllNPC[index]);
         };
     
         // Set a fixed item height matching the height of the item provided in makeItem. 
@@ -81,7 +81,7 @@ public class ItemsListController
     void OnCharacterSelected(IEnumerable<object> selectedItems)
     {
         // Get the currently selected item directly from the ListView
-        var selectedCharacter = m_NPCList.selectedItem as ItemData;
+        var selectedCharacter = m_NPCList.selectedItem as FactoriesData;
         
     
         // Handle none-selection (Escape to deselect everything)
@@ -95,8 +95,8 @@ public class ItemsListController
         m_detailsPanel.style.display = DisplayStyle.Flex;  
     
         // Fill in character details
-        m_NPCDescription.text = selectedCharacter.itemDescription.ToString();
-        m_NPCName.text = selectedCharacter.ItemName;
+        m_NPCDescription.text = selectedCharacter.FactoriesDescriptions.ToString();
+        m_NPCName.text = selectedCharacter.FactoriesName;
         m_NPCSprite.style.backgroundImage = new StyleBackground(selectedCharacter.Icon);
         m_btn.name = selectedCharacter.name;
     }

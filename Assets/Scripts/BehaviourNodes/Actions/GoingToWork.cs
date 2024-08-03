@@ -23,7 +23,11 @@ public class GoingToWork : Node
         
         if(lastWorkSpot == null) lastWorkSpot = npc.getWorkSpot();
 
-        if(EvaluationCount == 0 || lastWorkSpot != npc.getWorkSpot()) agent.destination = npc.getWorkSpot().transform.position;
+        if(EvaluationCount == 0 || lastWorkSpot != npc.getWorkSpot()) 
+        {
+            lastWorkSpot = npc.getWorkSpot();
+            agent.destination = npc.getWorkSpot().transform.position;
+        }
 
         rb.MovePosition(rb.position + new Vector2(agent.desiredVelocity.x, agent.desiredVelocity.y).normalized * npc.getNPCData().walkSpeed * Time.fixedDeltaTime);
 

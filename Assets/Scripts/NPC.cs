@@ -29,10 +29,8 @@ public class NPC : MonoBehaviour, IBehaviorTree
     private float smackTimer = 0;
     [SerializeField] GameObject WorkSpot;    
     [SerializeField] NPCData npcData;
-    [SerializeField] MapData mapData;
     [SerializeField] GameObject rayPoint;
     private Coroutine m_BehaviorTreeRoutine;
-
     private void GenerateBehaviorTree()
     {
         BehaviorTree = 
@@ -117,10 +115,10 @@ public class NPC : MonoBehaviour, IBehaviorTree
                 scannedGameObjects.Add(cast.collider.gameObject);             
             }
         }
-
+        
         for(int i = 0; i < scannedGameObjects.Count; i++)
         {
-            if(Random.value <= npcData.ChanceToClose)
+            if(Random.value <= npcData.ChanceToClose && scannedGameObjects[i].CompareTag("Window"))
             {
                 WindowToClose = scannedGameObjects[i];
                 return scannedGameObjects[i];
@@ -143,14 +141,7 @@ public class NPC : MonoBehaviour, IBehaviorTree
     {
         WorkSpot = workSpot;
     }
-    public NPCData getNPCData()
-    {
-        return npcData;
-    }
-    public MapData getMapData()
-    {
-        return mapData;
-    }
+    public NPCData getNPCData() {return npcData;}
     public GameObject getWorkSpot()
     {
         return WorkSpot;

@@ -13,6 +13,8 @@ TagManager:
   - Inventory
   - Storage
   - DrawingTable
+  - Sounds
+  - Pedestrians
   layers:
   - Default
   - TransparentFX

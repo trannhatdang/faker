@@ -22,8 +22,9 @@ public class NotHavingWorkshop : Node
 
         if(EvaluationCount == 0 || Vector2.Distance(rb.position, newPos) < 1f)
         {
-            float xPos = Random.Range(npc.getMapData().leftBorder, npc.getMapData().rightBorder);
-            float yPos = Random.Range(npc.getMapData().downBorder, npc.getMapData().upBorder);
+            MapData mapData = GameManager.manager.getMapData();
+            float xPos = Random.Range(mapData.leftBorder, mapData.rightBorder);
+            float yPos = Random.Range(mapData.downBorder, mapData.upBorder);
             newPos = new Vector2(xPos, yPos);
         }
 

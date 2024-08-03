@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -22,7 +23,9 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnChangeInventory;
     public event EventHandler OnPausePressed;
     public GameObject UI {get; private set;}
+    AudioSource Sounds;
     [SerializeField] Inventory inventory;
+    [SerializeReference] MapData mapData;
     void Awake()
     {
         if(manager != null && manager != this)
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
+        Sounds = GameObject.FindGameObjectWithTag("Sounds").GetComponent<AudioSource>();
         AllNPCs = Resources.LoadAll<GameObject>("NPCs").ToList();
         AllItems = Resources.LoadAll<GameObject>("Items").ToList();
         gameState = Resources.Load<GameState>("ScriptableObjects/GameState");
@@ -48,6 +52,8 @@ public class GameManager : MonoBehaviour
         }
         gameState.Money = 0;
         gameState.Rating = 1000f;
+
+
         
         if(GameObject.FindWithTag("UI").GetComponent<InventoryUIController>() != null) 
         {
@@ -137,4 +143,9 @@ public class GameManager : MonoBehaviour
 
         if(gameState.Rating <= 0) gameState.Rating = 1000f;
     }
+    public void PlaySmackSound()
+    {
+        Sounds.GetComponent<Audio>().PlaySmackSound();
+    }
+    public MapData getMapData() {return mapData;}
 }

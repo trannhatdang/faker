@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: -4112919409059788196}
   - component: {fileID: 8432838811775940980}
   - component: {fileID: 881175876342626535}
-  - component: {fileID: 4295565431120100341}
   - component: {fileID: 1699963493407882886}
   - component: {fileID: -4355717372005150684}
+  - component: {fileID: 3486173666171852610}
   m_Layer: 0
-  m_Name: ChuBanRau 4
+  m_Name: BuiKiem
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,22 +142,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4295565431120100341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2426779854698259144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e885657d31a74a4fbb2338724723194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WorkSpot: {fileID: 0}
-  npcData: {fileID: 11400000, guid: 5192531fb4339f441a8ad96d5d5f9803, type: 2}
-  mapData: {fileID: 11400000, guid: 5e6d54bffc0a94145903294c2654fa38, type: 2}
-  rayPoint: {fileID: 8331938960735324794}
 --- !u!195 &1699963493407882886
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -226,6 +210,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.53125, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &3486173666171852610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426779854698259144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071948bc94d8fc14e947111c6259b417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayPoint: {fileID: 8331938960735324794}
+  npcData: {fileID: 11400000, guid: 5192531fb4339f441a8ad96d5d5f9803, type: 2}
 --- !u!1 &6378634733643531674
 GameObject:
   m_ObjectHideFlags: 0
