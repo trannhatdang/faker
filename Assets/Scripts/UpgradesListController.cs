@@ -7,11 +7,11 @@ public class UpgradesListController
     // UXML template for list entries
     VisualTreeAsset m_ListEntryTemplate;
     // UI element references
-    ListView m_NPCList;
-    Label m_NPCDescription;
-    Label m_NPCName;
-    VisualElement m_NPCSprite;    
-    List<ItemData> m_AllNPC;   
+    ListView m_UpgradesList;
+    Label m_UpgradesDescription;
+    Label m_UpgradesName;
+    VisualElement m_UpgradesSprite;    
+    List<ItemData> m_AllUpgrades;   
     VisualElement m_detailsPanel;
     Button m_btn;
     public void InitializeCharacterList(VisualElement root, VisualTreeAsset listElementTemplate)
@@ -20,12 +20,12 @@ public class UpgradesListController
         
         m_ListEntryTemplate = listElementTemplate;    
          
-        m_NPCList = root.Q<ListView>("upgrades-list");
+        m_UpgradesList = root.Q<ListView>("upgrades-list");
     
         // Store references to the selected character info elements
-        m_NPCDescription = root.Q<Label>("upgrades-description");
-        m_NPCName = root.Q<Label>("upgrades-name");
-        m_NPCSprite = root.Q<VisualElement>("upgrades-sprite");
+        m_UpgradesDescription = root.Q<Label>("upgrades-description");
+        m_UpgradesName = root.Q<Label>("upgrades-name");
+        m_UpgradesSprite = root.Q<VisualElement>("upgrades-sprite");
         m_detailsPanel = root.Q<VisualElement>("right-container");
         m_btn = root.Q<Button>(className: "upgrades-button");
 
@@ -34,19 +34,19 @@ public class UpgradesListController
         FillItemList();
     
         // Register to get a callback when an item is selected
-        m_NPCList.selectionChanged += OnCharacterSelected;
+        m_UpgradesList.selectionChanged += OnCharacterSelected;
     }
     
     void EnumerateAllItems()
     {
-        m_AllNPC = new List<ItemData>();
-        m_AllNPC.AddRange(Resources.LoadAll<ItemData>("Upgrades"));
+        m_AllUpgrades = new List<ItemData>();
+        m_AllUpgrades.AddRange(Resources.LoadAll<ItemData>("Upgrades"));
     }
     
     void FillItemList()
     {
         // Set up a make item function for a list entry
-        m_NPCList.makeItem = () =>
+        m_UpgradesList.makeItem = () =>
         {
             // Instantiate the UXML template for the entry
             var newListEntry = m_ListEntryTemplate.Instantiate();
@@ -65,23 +65,23 @@ public class UpgradesListController
         };
     
         // Set up bind function for a specific list entry
-        m_NPCList.bindItem = (item, index) =>
+        m_UpgradesList.bindItem = (item, index) =>
         {
-            (item.userData as ItemsListEntryController)?.SetCharacterData(m_AllNPC[index]);
+            (item.userData as ItemsListEntryController)?.SetCharacterData(m_AllUpgrades[index]);
         };
     
         // Set a fixed item height matching the height of the item provided in makeItem. 
         // For dynamic height, see the virtualizationMethod property.
-        m_NPCList.fixedItemHeight = 45;
+        m_UpgradesList.fixedItemHeight = 45;
     
         // Set the actual item's source list/array
-        m_NPCList.itemsSource = m_AllNPC;
+        m_UpgradesList.itemsSource = m_AllUpgrades;
     }
     
     void OnCharacterSelected(IEnumerable<object> selectedItems)
     {
         // Get the currently selected item directly from the ListView
-        var selectedCharacter = m_NPCList.selectedItem as ItemData;
+        var selectedCharacter = m_UpgradesList.selectedItem as ItemData;
         
     
         // Handle none-selection (Escape to deselect everything)
@@ -95,9 +95,9 @@ public class UpgradesListController
         m_detailsPanel.style.display = DisplayStyle.Flex;  
     
         // Fill in character details
-        m_NPCDescription.text = selectedCharacter.itemDescription.ToString();
-        m_NPCName.text = selectedCharacter.ItemName;
-        m_NPCSprite.style.backgroundImage = new StyleBackground(selectedCharacter.Icon);
+        m_UpgradesDescription.text = selectedCharacter.itemDescription.ToString();
+        m_UpgradesName.text = selectedCharacter.ItemName;
+        m_UpgradesSprite.style.backgroundImage = new StyleBackground(selectedCharacter.Icon);
         m_btn.name = selectedCharacter.name;
     }
 }

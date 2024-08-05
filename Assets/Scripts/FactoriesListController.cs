@@ -7,11 +7,11 @@ public class FactoriesListController
     // UXML template for list entries
     VisualTreeAsset m_ListEntryTemplate;
     // UI element references
-    ListView m_NPCList;
-    Label m_NPCDescription;
-    Label m_NPCName;
-    VisualElement m_NPCSprite;    
-    List<FactoriesData> m_AllNPC;   
+    ListView m_FactoriesList;
+    Label m_FactoriesDescription;
+    Label m_FactoriesName;
+    VisualElement m_FactoriesSprite;    
+    List<FactoriesData> m_AllFactories;   
     VisualElement m_detailsPanel;
     Button m_btn;
     public void InitializeCharacterList(VisualElement root, VisualTreeAsset listElementTemplate)
@@ -20,33 +20,33 @@ public class FactoriesListController
         
         m_ListEntryTemplate = listElementTemplate;    
          
-        m_NPCList = root.Q<ListView>("factories-list");
+        m_FactoriesList = root.Q<ListView>("factories-list");
     
         // Store references to the selected character info elements
-        m_NPCDescription = root.Q<Label>("factories-description");
-        m_NPCName = root.Q<Label>("factories-name");
-        m_NPCSprite = root.Q<VisualElement>("factories-sprite");
+        m_FactoriesDescription = root.Q<Label>("factory-description");
+        m_FactoriesName = root.Q<Label>("factory-name");
+        m_FactoriesSprite = root.Q<VisualElement>("factory-sprite");
         m_detailsPanel = root.Q<VisualElement>("right-container");
-        m_btn = root.Q<Button>(className: "factories-button");
+        m_btn = root.Q<Button>(className: "factory-button");
 
         m_detailsPanel.style.display = DisplayStyle.None;  
 
         FillItemList();
     
         // Register to get a callback when an item is selected
-        m_NPCList.selectionChanged += OnCharacterSelected;
+        m_FactoriesList.selectionChanged += OnCharacterSelected;
     }
     
     void EnumerateAllItems()
     {
-        m_AllNPC = new List<FactoriesData>();
-        m_AllNPC.AddRange(Resources.LoadAll<FactoriesData>("Factories"));
+        m_AllFactories = new List<FactoriesData>();
+        m_AllFactories.AddRange(Resources.LoadAll<FactoriesData>("Factories"));
     }
     
     void FillItemList()
     {
         // Set up a make item function for a list entry
-        m_NPCList.makeItem = () =>
+        m_FactoriesList.makeItem = () =>
         {
             // Instantiate the UXML template for the entry
             var newListEntry = m_ListEntryTemplate.Instantiate();
@@ -65,23 +65,23 @@ public class FactoriesListController
         };
     
         // Set up bind function for a specific list entry
-        m_NPCList.bindItem = (item, index) =>
+        m_FactoriesList.bindItem = (item, index) =>
         {
-            (item.userData as FactoriesListEntryController)?.SetCharacterData(m_AllNPC[index]);
+            (item.userData as FactoriesListEntryController)?.SetCharacterData(m_AllFactories[index]);
         };
     
         // Set a fixed item height matching the height of the item provided in makeItem. 
         // For dynamic height, see the virtualizationMethod property.
-        m_NPCList.fixedItemHeight = 45;
+        m_FactoriesList.fixedItemHeight = 45;
     
         // Set the actual item's source list/array
-        m_NPCList.itemsSource = m_AllNPC;
+        m_FactoriesList.itemsSource = m_AllFactories;
     }
     
     void OnCharacterSelected(IEnumerable<object> selectedItems)
     {
         // Get the currently selected item directly from the ListView
-        var selectedCharacter = m_NPCList.selectedItem as FactoriesData;
+        var selectedCharacter = m_FactoriesList.selectedItem as FactoriesData;
         
     
         // Handle none-selection (Escape to deselect everything)
@@ -95,9 +95,9 @@ public class FactoriesListController
         m_detailsPanel.style.display = DisplayStyle.Flex;  
     
         // Fill in character details
-        m_NPCDescription.text = selectedCharacter.FactoriesDescriptions.ToString();
-        m_NPCName.text = selectedCharacter.FactoriesName;
-        m_NPCSprite.style.backgroundImage = new StyleBackground(selectedCharacter.Icon);
+        m_FactoriesDescription.text = selectedCharacter.FactoriesDescriptions.ToString();
+        m_FactoriesName.text = selectedCharacter.FactoriesName;
+        m_FactoriesSprite.style.backgroundImage = new StyleBackground(selectedCharacter.Icon);
         m_btn.name = selectedCharacter.name;
     }
 }

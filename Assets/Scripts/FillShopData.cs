@@ -16,11 +16,11 @@ public class FillShopData : MonoBehaviour
         // Initialize the character list controller
         var WorkersListController = new NPCListController();
         var ItemsListController = new ItemsListController();
-        // var UpgradesListController = new UpgradesListController();
-        // var FactoriesListController = new FactoriesListController();
+        var UpgradesListController = new UpgradesListController();
+        var FactoriesListController = new FactoriesListController();
         WorkersListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Workers"), m_ListEntryTemplate);
         ItemsListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Items"), m_ItemListEntryTemplate);
-        // FactoriesListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Factories"), m_FactoriesListEntryTemplate);
-        // UpgradesListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Upgrades"), m_UpgradesListEntryTemplate);
+        FactoriesListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Factories"), m_FactoriesListEntryTemplate);
+        UpgradesListController.InitializeCharacterList(uiDocument.rootVisualElement.Q<Tab>("Upgrades"), m_UpgradesListEntryTemplate);
     }
 }

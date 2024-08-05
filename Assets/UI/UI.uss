@@ -163,6 +163,6 @@
     background-image: none;
 }
 
-.factory-name {
+.factory-button {
     background-image: none;
 }
